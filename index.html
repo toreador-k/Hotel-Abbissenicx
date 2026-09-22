@@ -93,6 +93,9 @@ body::before {
 
   border: 3px solid #4c4952;
 
+  outline: 1px solid rgba(255,255,255,.08);
+  outline-offset: -6px;
+
   box-shadow:
 
     /* machine shadow */
@@ -338,24 +341,37 @@ body::before {
   border-radius: 46px 46px 40px 40px;
 
   background:
+
     linear-gradient(
       145deg,
-      #67636d 0%,
-      #38353e 24%,
-      #1e1c22 52%,
-      #45414b 78%,
-      #17161b 100%
+      #77737d 0%,
+      #514e57 18%,
+      #302d35 48%,
+      #1d1b21 72%,
+      #39363f 100%
     );
 
   border: 4px solid #35323b;
 
   box-shadow:
 
-    inset 0 4px 5px rgba(255,255,255,.16),
+    /* outer separation from machine */
+    0 5px 0 rgba(0,0,0,.38),
 
-    inset 0 -18px 30px rgba(0,0,0,.8),
+    0 9px 16px rgba(0,0,0,.42),
 
-    0 8px 12px rgba(0,0,0,.45);
+    /* upper bevel */
+    inset 0 3px 0 rgba(255,255,255,.16),
+
+    inset 0 1px 0 rgba(255,255,255,.08),
+
+    /* deep lower recess */
+    inset 0 -16px 25px rgba(0,0,0,.72),
+
+    /* side depth */
+    inset 7px 0 12px rgba(0,0,0,.22),
+
+    inset -7px 0 12px rgba(0,0,0,.22);
 }
 
 
@@ -367,16 +383,23 @@ body::before {
 
   position: absolute;
 
-  inset: 9px;
+  inset: 8px;
 
-  border-radius: 38px 38px 32px 32px;
+  border-radius: 39px 39px 33px 33px;
 
   pointer-events: none;
 
-  border: 1px solid rgba(255,255,255,.08);
+  border:
+
+    1px solid rgba(255,255,255,.12);
 
   box-shadow:
-    inset 0 3px 5px rgba(0,0,0,.6);
+
+    inset 0 2px 3px rgba(255,255,255,.06),
+
+    inset 0 -3px 6px rgba(0,0,0,.65),
+
+    0 1px 0 rgba(0,0,0,.45);
 }
 
 
@@ -993,12 +1016,19 @@ CONTROL PANEL
       #3f3c45 100%
     );
 
-  border-top: 4px solid #89868f;
+  border-top: 3px solid #4a474f;
 
   box-shadow:
-    inset 0 8px 15px rgba(255,255,255,.08),
-    inset 0 -10px 20px rgba(0,0,0,.35),
-    0 8px 12px rgba(0,0,0,.3);
+
+  inset 0 3px 0 rgba(255,255,255,.16),
+
+  inset 0 7px 12px rgba(0,0,0,.28),
+
+  inset 0 -12px 20px rgba(0,0,0,.38),
+
+  0 -2px 4px rgba(0,0,0,.28),
+
+  0 8px 12px rgba(0,0,0,.3);
 }
 
 
