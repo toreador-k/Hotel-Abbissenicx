@@ -15,98 +15,192 @@
 body {
     margin: 0;
     min-height: 100vh;
+
     background:
-        radial-gradient(circle at 50% 20%, #30205c 0%, #151329 45%, #080812 100%);
+        radial-gradient(
+            circle at 50% 20%,
+            #30205c 0%,
+            #151329 45%,
+            #080812 100%
+        );
+
     color: #e9e7f5;
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     display: flex;
     justify-content: center;
     align-items: center;
+
     padding: 30px 15px;
 }
+
 
 /* =========================
    ARCADE CABINET
 ========================= */
 
 .arcade {
+
     width: min(900px, 96vw);
+
     background:
-        linear-gradient(145deg, #777887, #464652 45%, #292933);
-    border-radius: 28px 28px 18px 18px;
+        linear-gradient(
+            145deg,
+            #777887,
+            #464652 45%,
+            #292933
+        );
+
+    border-radius:
+        28px 28px 18px 18px;
+
     padding: 22px;
+
     box-shadow:
         0 35px 80px rgba(0,0,0,.7),
         inset 0 2px 2px rgba(255,255,255,.15),
         inset 0 -5px 10px rgba(0,0,0,.5);
-    border: 3px solid #9696a4;
+
+    border:
+        3px solid #9696a4;
 }
+
 
 /* =========================
    MARQUEE
 ========================= */
 
 .marquee {
+
     background:
-        linear-gradient(180deg, #21153f, #100b22);
-    border-radius: 18px 18px 8px 8px;
+        linear-gradient(
+            180deg,
+            #21153f,
+            #100b22
+        );
+
+    border-radius:
+        18px 18px 8px 8px;
+
     padding: 20px;
+
     text-align: center;
-    border: 3px solid #5016DC;
+
+    border:
+        3px solid #5016DC;
+
     box-shadow:
         0 0 20px rgba(80,22,220,.35),
         inset 0 0 20px rgba(0,0,0,.7);
 }
 
 .hotel {
-    font-size: clamp(22px, 5vw, 44px);
-    letter-spacing: .18em;
-    font-weight: 900;
-    color: #f4f1ff;
+
+    font-size:
+        clamp(22px, 5vw, 44px);
+
+    letter-spacing:
+        .18em;
+
+    font-weight:
+        900;
+
+    color:
+        #f4f1ff;
 }
 
 .floor {
-    margin-top: 7px;
-    font-size: 12px;
-    letter-spacing: .3em;
-    color: #a9a1c7;
+
+    margin-top:
+        7px;
+
+    font-size:
+        12px;
+
+    letter-spacing:
+        .3em;
+
+    color:
+        #a9a1c7;
 }
+
 
 /* =========================
    SCREEN
 ========================= */
 
 .screen-frame {
-    margin-top: 22px;
-    background: #19191f;
-    padding: 18px;
-    border-radius: 16px;
+
+    margin-top:
+        22px;
+
+    background:
+        #19191f;
+
+    padding:
+        18px;
+
+    border-radius:
+        16px;
+
     box-shadow:
         inset 0 0 25px #000,
         0 5px 10px rgba(0,0,0,.5);
 }
 
 .screen {
-    min-height: 650px;
+
+    min-height:
+        650px;
+
     background:
-        radial-gradient(circle at center, #29214d, #0c0a18 75%);
-    border-radius: 12px;
-    padding: 25px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
+        radial-gradient(
+            circle at center,
+            #29214d,
+            #0c0a18 75%
+        );
+
+    border-radius:
+        12px;
+
+    padding:
+        25px;
+
+    text-align:
+        center;
+
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
     box-shadow:
         inset 0 0 35px rgba(0,0,0,.9),
         inset 0 0 5px rgba(120,100,255,.4);
 }
 
-/* subtle CRT effect */
+
+/* CRT SCANLINES */
 
 .screen::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
     background:
         repeating-linear-gradient(
             0deg,
@@ -117,351 +211,731 @@ body {
         );
 }
 
+
 /* =========================
    GAME HEADER
 ========================= */
 
 .game-title {
-    font-size: clamp(28px, 6vw, 55px);
-    font-weight: 900;
-    letter-spacing: .12em;
-    margin-top: 5px;
+
+    font-size:
+        clamp(28px, 6vw, 55px);
+
+    font-weight:
+        900;
+
+    letter-spacing:
+        .12em;
+
+    margin-top:
+        5px;
 }
 
 .game-unit {
-    font-size: 11px;
-    letter-spacing: .3em;
-    color: #9d91c8;
-    margin-top: 5px;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        .3em;
+
+    color:
+        #9d91c8;
+
+    margin-top:
+        5px;
 }
 
+
+/* =========================
+   SENICX DISPLAY
+========================= */
+
 .token-display {
-    margin: 18px auto;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 9px 18px;
-    border: 1px solid #5016DC;
-    border-radius: 999px;
-    background: rgba(0,0,0,.35);
-    font-size: 13px;
-    letter-spacing: .15em;
+
+    margin:
+        18px auto;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        12px;
+
+    padding:
+        9px 20px;
+
+    border:
+        1px solid #5016DC;
+
+    border-radius:
+        999px;
+
+    background:
+        rgba(0,0,0,.35);
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        .15em;
 }
 
 .token {
-    color: #d5c7ff;
-    font-weight: bold;
+
+    color:
+        #d5c7ff;
+
+    font-weight:
+        bold;
 }
 
 .token-number {
-    color: white;
-    font-size: 18px;
+
+    color:
+        white;
+
+    font-size:
+        20px;
+
+    font-weight:
+        bold;
+
+    min-width:
+        25px;
 }
+
 
 /* =========================
    CARD
 ========================= */
 
 .card-area {
-    margin: 25px auto;
-    width: 270px;
-    height: 380px;
-    perspective: 1000px;
+
+    margin:
+        25px auto;
+
+    width:
+        270px;
+
+    aspect-ratio:
+        2156 / 3740;
+
+    perspective:
+        1000px;
 }
 
 .card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform .65s ease;
-    cursor: pointer;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    position:
+        relative;
+
+    transform-style:
+        preserve-3d;
+
+    transition:
+        transform .65s ease;
+
+    cursor:
+        pointer;
 }
 
 .card.flipped {
-    transform: rotateY(180deg);
+
+    transform:
+        rotateY(180deg);
 }
 
 .card-face {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    border-radius: 12px;
-    overflow: hidden;
+
+    position:
+        absolute;
+
+    width:
+        100%;
+
+    height:
+        100%;
+
+    backface-visibility:
+        hidden;
+
+    border-radius:
+        12px;
+
+    overflow:
+        hidden;
 }
 
+
+/* FRONT */
+
 .card-front {
+
     background:
-        linear-gradient(145deg, #302650, #151221);
-    border: 3px solid #6e6294;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+        linear-gradient(
+            145deg,
+            #302650,
+            #151221
+        );
+
+    border:
+        3px solid #6e6294;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
     box-shadow:
         0 15px 30px rgba(0,0,0,.6),
         inset 0 0 30px rgba(0,0,0,.5);
 }
 
+
+/* BACK */
+
 .card-back {
-    transform: rotateY(180deg);
+
+    transform:
+        rotateY(180deg);
+
     background:
-        linear-gradient(145deg, #e8e5ed, #bcb9c6);
-    color: #18151e;
-    padding: 28px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+        linear-gradient(
+            145deg,
+            #e8e5ed,
+            #bcb9c6
+        );
+
+    color:
+        #18151e;
+
+    padding:
+        28px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    justify-content:
+        center;
+
     box-shadow:
         0 15px 30px rgba(0,0,0,.6);
 }
 
 .card-number {
-    font-size: 13px;
-    letter-spacing: .25em;
-    opacity: .7;
+
+    font-size:
+        13px;
+
+    letter-spacing:
+        .25em;
+
+    opacity:
+        .7;
 }
 
 .card-title {
-    font-size: 27px;
-    font-weight: 900;
-    margin-top: 15px;
-    letter-spacing: .08em;
+
+    font-size:
+        27px;
+
+    font-weight:
+        900;
+
+    margin-top:
+        15px;
+
+    letter-spacing:
+        .08em;
 }
 
 .card-back .card-title {
-    margin-bottom: 20px;
+
+    margin-bottom:
+        20px;
 }
 
 .story {
-    font-size: 14px;
-    line-height: 1.65;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.65;
 }
+
 
 /* =========================
    STATUS
 ========================= */
 
 .status {
-    min-height: 20px;
-    font-size: 11px;
-    letter-spacing: .18em;
-    color: #aaa1c5;
-    margin: 15px;
+
+    min-height:
+        20px;
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        .18em;
+
+    color:
+        #aaa1c5;
+
+    margin:
+        15px;
 }
+
 
 /* =========================
    CONTROLS
 ========================= */
 
 .controls {
-    margin-top: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 35px;
+
+    margin-top:
+        25px;
+
+    display:
+        flex;
+
+    justify-content:
+        center;
+
+    align-items:
+        center;
+
+    gap:
+        35px;
 }
 
 .joystick {
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    background: #272732;
-    border: 5px solid #4b4b58;
-    position: relative;
+
+    width:
+        65px;
+
+    height:
+        65px;
+
+    border-radius:
+        50%;
+
+    background:
+        #272732;
+
+    border:
+        5px solid #4b4b58;
+
+    position:
+        relative;
+
     box-shadow:
         inset 0 5px 10px rgba(255,255,255,.08),
         0 6px 8px rgba(0,0,0,.5);
 }
 
 .joystick::before {
-    content: "";
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #5016DC;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 15px rgba(80,22,220,.6);
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        25px;
+
+    height:
+        25px;
+
+    border-radius:
+        50%;
+
+    background:
+        #5016DC;
+
+    left:
+        50%;
+
+    top:
+        50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    box-shadow:
+        0 0 15px rgba(80,22,220,.6);
 }
 
 .play-button {
-    width: 95px;
-    height: 95px;
-    border-radius: 50%;
-    border: 7px solid #33333e;
-    background: #5016DC;
-    color: white;
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: .12em;
-    cursor: pointer;
+
+    width:
+        95px;
+
+    height:
+        95px;
+
+    border-radius:
+        50%;
+
+    border:
+        7px solid #33333e;
+
+    background:
+        #5016DC;
+
+    color:
+        white;
+
+    font-size:
+        12px;
+
+    font-weight:
+        bold;
+
+    letter-spacing:
+        .12em;
+
+    cursor:
+        pointer;
+
     box-shadow:
         0 8px 0 #301080,
         0 12px 18px rgba(0,0,0,.6);
-    transition: transform .08s, box-shadow .08s;
+
+    transition:
+        transform .08s,
+        box-shadow .08s;
 }
 
 .play-button:hover {
-    filter: brightness(1.15);
+
+    filter:
+        brightness(1.15);
 }
 
 .play-button:active {
-    transform: translateY(7px);
+
+    transform:
+        translateY(7px);
+
     box-shadow:
         0 1px 0 #301080,
         0 5px 10px rgba(0,0,0,.6);
 }
 
 .play-button:disabled {
-    background: #383844;
-    box-shadow: 0 8px 0 #22222a;
-    cursor: not-allowed;
-    opacity: .55;
+
+    background:
+        #383844;
+
+    box-shadow:
+        0 8px 0 #22222a;
+
+    cursor:
+        not-allowed;
+
+    opacity:
+        .55;
 }
 
-/* =========================
-   COLLECTION
-========================= */
-
-.collection {
-    margin-top: 30px;
-    padding: 15px;
-    border-top: 1px solid rgba(255,255,255,.1);
-    font-size: 11px;
-    letter-spacing: .2em;
-    color: #aaa1c5;
-}
-
-.collection-number {
-    color: white;
-    font-weight: bold;
-}
 
 /* =========================
    TOKEN SLOT
 ========================= */
 
 .token-slot {
-    margin-top: 20px;
-    display: inline-block;
-    padding: 8px 20px;
-    border-radius: 5px;
-    border: 2px solid #555560;
-    background: #111117;
-    font-size: 9px;
-    letter-spacing: .25em;
-    color: #777784;
+
+    margin-top:
+        20px;
+
+    display:
+        inline-block;
+
+    padding:
+        8px 20px;
+
+    border-radius:
+        5px;
+
+    border:
+        2px solid #555560;
+
+    background:
+        #111117;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        .25em;
+
+    color:
+        #777784;
 }
+
+
+/* =========================
+   COLLECTION
+========================= */
+
+.collection {
+
+    margin-top:
+        30px;
+
+    padding:
+        15px;
+
+    border-top:
+        1px solid rgba(255,255,255,.1);
+
+    font-size:
+        11px;
+
+    letter-spacing:
+        .2em;
+
+    color:
+        #aaa1c5;
+}
+
+.collection-number {
+
+    color:
+        white;
+
+    font-weight:
+        bold;
+}
+
 
 /* =========================
    RESET
 ========================= */
 
 .reset {
-    margin-top: 18px;
-    background: transparent;
-    border: none;
-    color: #666675;
-    font-size: 9px;
-    letter-spacing: .2em;
-    cursor: pointer;
+
+    margin-top:
+        18px;
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    color:
+        #666675;
+
+    font-size:
+        9px;
+
+    letter-spacing:
+        .2em;
+
+    cursor:
+        pointer;
 }
 
 .reset:hover {
-    color: #aaaabd;
+
+    color:
+        #aaaabd;
 }
+
+
+/* MOBILE */
 
 @media (max-width: 600px) {
 
     .arcade {
-        padding: 12px;
-        border-radius: 18px;
+
+        padding:
+            12px;
+
+        border-radius:
+            18px;
     }
 
     .screen {
-        min-height: 590px;
-        padding: 18px 10px;
+
+        min-height:
+            590px;
+
+        padding:
+            18px 10px;
     }
 
     .card-area {
-        width: 235px;
-        height: 330px;
+
+        width:
+            235px;
     }
 
     .controls {
-        gap: 20px;
+
+        gap:
+            20px;
     }
 
     .play-button {
-        width: 80px;
-        height: 80px;
+
+        width:
+            80px;
+
+        height:
+            80px;
     }
 
     .joystick {
-        width: 55px;
-        height: 55px;
+
+        width:
+            55px;
+
+        height:
+            55px;
     }
+
 }
 
 </style>
 </head>
 
+
 <body>
 
 <div class="arcade">
 
+
+    <!-- MARQUEE -->
+
     <div class="marquee">
-        <div class="hotel">HOTEL ABBISSENICX</div>
-        <div class="floor">FLOOR 2 : CASINO</div>
+
+        <div class="hotel">
+            HOTEL ABBISSENICX
+        </div>
+
+        <div class="floor">
+            FLOOR 2 : CASINO
+        </div>
+
     </div>
+
+
+    <!-- SCREEN -->
 
     <div class="screen-frame">
 
         <div class="screen">
 
-            <div class="game-title">THE PLAYGROUND</div>
+
+            <div class="game-title">
+                THE PLAYGROUND
+            </div>
+
 
             <div class="game-unit">
                 GAME UNIT 077
             </div>
 
+
+            <!-- SENICX -->
+
             <div class="token-display">
-                <span class="token">SENICX</span>
-                <span class="token-number" id="tokenCount">03</span>
+
+                <span class="token">
+                    SENICX
+                </span>
+
+                <span
+                    class="token-number"
+                    id="tokenCount">
+                    07
+                </span>
+
             </div>
+
+
+            <!-- CARD -->
 
             <div class="card-area">
 
-                <div class="card" id="card">
+                <div
+                    class="card"
+                    id="card">
+
+
+                    <!-- FRONT -->
 
                     <div class="card-face card-front">
 
-                        <div class="card-number" id="frontNumber">
+                        <div
+                            class="card-number"
+                            id="frontNumber">
+
                             CARD 000
+
                         </div>
 
-                        <div class="card-title" id="frontTitle">
+                        <div
+                            class="card-title"
+                            id="frontTitle">
+
                             INSERT SENICX
+
                         </div>
 
                     </div>
 
+
+                    <!-- BACK -->
+
                     <div class="card-face card-back">
 
-                        <div class="card-number" id="backNumber">
+                        <div
+                            class="card-number"
+                            id="backNumber">
+
                             CARD 000
+
                         </div>
 
-                        <div class="card-title" id="backTitle">
+                        <div
+                            class="card-title"
+                            id="backTitle">
+
                             THE PLAYGROUND
+
                         </div>
 
-                        <div class="story" id="story">
+                        <div
+                            class="story"
+                            id="story">
+
                             Your card is waiting.
+
                         </div>
 
                     </div>
@@ -470,34 +944,71 @@ body {
 
             </div>
 
-            <div class="status" id="status">
+
+            <!-- STATUS -->
+
+            <div
+                class="status"
+                id="status">
+
                 INSERT SENICX
+
             </div>
+
+
+            <!-- CONTROLS -->
 
             <div class="controls">
 
                 <div class="joystick"></div>
 
-                <button class="play-button" id="playButton">
+                <button
+                    class="play-button"
+                    id="playButton">
+
                     PLAY
+
                 </button>
 
             </div>
 
+
+            <!-- TOKEN SLOT -->
+
             <div class="token-slot">
+
                 SENICX SLOT
+
             </div>
+
+
+            <!-- COLLECTION -->
 
             <div class="collection">
+
                 COLLECTION :
-                <span class="collection-number" id="collectionCount">
-                    00 / 06
+
+                <span
+                    class="collection-number"
+                    id="collectionCount">
+
+                    00 / 77
+
                 </span>
+
             </div>
 
-            <button class="reset" id="resetButton">
+
+            <!-- RESET -->
+
+            <button
+                class="reset"
+                id="resetButton">
+
                 RESET GAME
+
             </button>
+
 
         </div>
 
@@ -508,68 +1019,104 @@ body {
 
 <script>
 
+
+/* =========================
+   CARD DATABASE
+========================= */
+
 const cards = [
 
     {
         number: "CARD 001",
         title: "THE FOOL",
-        story: "Every journey begins somewhere. Sometimes the first step is simply forgetting where you came from."
+        story:
+            "Every journey begins somewhere. Sometimes the first step is simply forgetting where you came from."
     },
 
     {
         number: "CARD 002",
         title: "THE WANDERER",
-        story: "A guest without a destination walks through corridors that seem to remember them."
+        story:
+            "A guest without a destination walks through corridors that seem to remember them."
     },
 
     {
         number: "CARD 003",
         title: "THE VOID",
-        story: "There is a room in the hotel where nothing waits. That is precisely what makes it difficult to leave."
+        story:
+            "There is a room in the hotel where nothing waits. That is precisely what makes it difficult to leave."
     },
 
     {
         number: "CARD 004",
         title: "THE HOTEL",
-        story: "Welcome to Hotel Abbissenicx. Your stay has already begun."
+        story:
+            "Welcome to Hotel Abbissenicx. Your stay has already begun."
     },
 
     {
         number: "CARD 005",
         title: "THE PLAYGROUND",
-        story: "The rules are simple. Play long enough and eventually the game begins playing back."
+        story:
+            "The rules are simple. Play long enough and eventually the game begins playing back."
     },
 
     {
         number: "CARD 006",
         title: "THE AFTERLIGHT",
-        story: "Somewhere beyond the final corridor, something remains after everything else has disappeared."
+        story:
+            "Somewhere beyond the final corridor, something remains after everything else has disappeared."
     }
 
 ];
 
 
 /* =========================
-   GAME DATA
+   SENICX
 ========================= */
 
-let tokens = Number(localStorage.getItem("senicxTokens"));
+let tokens =
+    Number(
+        localStorage.getItem(
+            "senicxTokens"
+        )
+    );
+
+
+/*
+   NEW PLAYERS START WITH 7 SENICX
+*/
 
 if (isNaN(tokens)) {
-    tokens = 3;
-    localStorage.setItem("senicxTokens", tokens);
+
+    tokens = 7;
+
+    localStorage.setItem(
+        "senicxTokens",
+        tokens
+    );
+
 }
 
-let collected = JSON.parse(
-    localStorage.getItem("abbissenicxCollection") || "[]"
-);
+
+/* =========================
+   COLLECTION
+========================= */
+
+let collected =
+    JSON.parse(
+        localStorage.getItem(
+            "abbissenicxCollection"
+        ) || "[]"
+    );
 
 
 /* =========================
    ELEMENTS
 ========================= */
 
-const card = document.getElementById("card");
+const card =
+    document.getElementById("card");
 
 const playButton =
     document.getElementById("playButton");
@@ -578,28 +1125,44 @@ const tokenCount =
     document.getElementById("tokenCount");
 
 const collectionCount =
-    document.getElementById("collectionCount");
+    document.getElementById(
+        "collectionCount"
+    );
 
 const status =
-    document.getElementById("status");
+    document.getElementById(
+        "status"
+    );
 
 const frontNumber =
-    document.getElementById("frontNumber");
+    document.getElementById(
+        "frontNumber"
+    );
 
 const frontTitle =
-    document.getElementById("frontTitle");
+    document.getElementById(
+        "frontTitle"
+    );
 
 const backNumber =
-    document.getElementById("backNumber");
+    document.getElementById(
+        "backNumber"
+    );
 
 const backTitle =
-    document.getElementById("backTitle");
+    document.getElementById(
+        "backTitle"
+    );
 
 const story =
-    document.getElementById("story");
+    document.getElementById(
+        "story"
+    );
 
 const resetButton =
-    document.getElementById("resetButton");
+    document.getElementById(
+        "resetButton"
+    );
 
 
 /* =========================
@@ -609,194 +1172,305 @@ const resetButton =
 function updateDisplay() {
 
     tokenCount.textContent =
-        String(tokens).padStart(2, "0");
+        String(tokens)
+        .padStart(2, "0");
+
 
     collectionCount.textContent =
-        String(collected.length).padStart(2, "0")
-        + " / "
-        + String(cards.length).padStart(2, "0");
+        String(collected.length)
+        .padStart(2, "0")
+        + " / 77";
 
-    playButton.disabled = tokens <= 0;
+
+    playButton.disabled =
+        tokens <= 0;
+
 
     if (tokens <= 0) {
+
         status.textContent =
             "NO SENICX AVAILABLE";
+
     }
 
 }
 
 
 /* =========================
-   FLIP CARD
+   CARD FLIP
 ========================= */
 
-card.addEventListener("click", () => {
+card.addEventListener(
+    "click",
+    () => {
 
-    if (frontNumber.textContent === "CARD 000") {
-        return;
+        if (
+            frontNumber.textContent ===
+            "CARD 000"
+        ) {
+
+            return;
+
+        }
+
+        card.classList.toggle(
+            "flipped"
+        );
+
     }
-
-    card.classList.toggle("flipped");
-
-});
+);
 
 
 /* =========================
    PLAY
 ========================= */
 
-playButton.addEventListener("click", () => {
-
-    if (tokens <= 0) {
-        return;
-    }
-
-    /* consume token */
-
-    tokens--;
-
-    localStorage.setItem(
-        "senicxTokens",
-        tokens
-    );
-
-    /* reset card */
-
-    card.classList.remove("flipped");
-
-    status.textContent =
-        "SENICX ACCEPTED";
-
-    playButton.disabled = true;
+playButton.addEventListener(
+    "click",
+    () => {
 
 
-    /* machine thinking */
+        if (tokens <= 0) {
 
-    setTimeout(() => {
-
-        status.textContent =
-            "SEARCHING CARD DATABASE...";
-
-    }, 450);
-
-
-    setTimeout(() => {
-
-        status.textContent =
-            "LOCATING GUEST RECORD...";
-
-    }, 900);
-
-
-    setTimeout(() => {
-
-        const randomIndex =
-            Math.floor(Math.random() * cards.length);
-
-        const selected =
-            cards[randomIndex];
-
-
-        /* update card */
-
-        frontNumber.textContent =
-            selected.number;
-
-        frontTitle.textContent =
-            selected.title;
-
-        backNumber.textContent =
-            selected.number;
-
-        backTitle.textContent =
-            selected.title;
-
-        story.textContent =
-            selected.story;
-
-
-        /* collection */
-
-        const isNew =
-            !collected.includes(selected.number);
-
-        if (isNew) {
-
-            collected.push(selected.number);
-
-            localStorage.setItem(
-                "abbissenicxCollection",
-                JSON.stringify(collected)
-            );
-
-            status.textContent =
-                "CARD FOUND // NEW ENTRY";
-
-        } else {
-
-            status.textContent =
-                "CARD FOUND // DUPLICATE";
+            return;
 
         }
 
-        updateDisplay();
 
-    }, 1350);
+        /*
+           SPEND 1 SENICX
+        */
 
-});
+        tokens--;
+
+
+        localStorage.setItem(
+            "senicxTokens",
+            tokens
+        );
+
+
+        /*
+           RESET CARD
+        */
+
+        card.classList.remove(
+            "flipped"
+        );
+
+
+        status.textContent =
+            "SENICX ACCEPTED";
+
+
+        playButton.disabled =
+            true;
+
+
+        /*
+           MACHINE SEQUENCE
+        */
+
+        setTimeout(
+            () => {
+
+                status.textContent =
+                    "SEARCHING CARD DATABASE...";
+
+            },
+            450
+        );
+
+
+        setTimeout(
+            () => {
+
+                status.textContent =
+                    "LOCATING GUEST RECORD...";
+
+            },
+            900
+        );
+
+
+        setTimeout(
+            () => {
+
+
+                /*
+                   RANDOM CARD
+                */
+
+                const randomIndex =
+                    Math.floor(
+                        Math.random()
+                        * cards.length
+                    );
+
+
+                const selected =
+                    cards[randomIndex];
+
+
+                /*
+                   UPDATE CARD
+                */
+
+                frontNumber.textContent =
+                    selected.number;
+
+                frontTitle.textContent =
+                    selected.title;
+
+                backNumber.textContent =
+                    selected.number;
+
+                backTitle.textContent =
+                    selected.title;
+
+                story.textContent =
+                    selected.story;
+
+
+                /*
+                   CHECK DUPLICATE
+                */
+
+                const isNew =
+                    !collected.includes(
+                        selected.number
+                    );
+
+
+                if (isNew) {
+
+
+                    /*
+                       NEW CARD
+                    */
+
+                    collected.push(
+                        selected.number
+                    );
+
+
+                    localStorage.setItem(
+                        "abbissenicxCollection",
+                        JSON.stringify(
+                            collected
+                        )
+                    );
+
+
+                    status.textContent =
+                        "CARD FOUND // NEW ENTRY";
+
+
+                } else {
+
+
+                    /*
+                       DUPLICATE
+                       RETURN 1 SENICX
+                    */
+
+                    tokens++;
+
+
+                    localStorage.setItem(
+                        "senicxTokens",
+                        tokens
+                    );
+
+
+                    status.textContent =
+                        "DUPLICATE // SENICX RETURNED";
+
+
+                }
+
+
+                updateDisplay();
+
+
+            },
+            1350
+        );
+
+    }
+);
 
 
 /* =========================
    RESET
 ========================= */
 
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener(
+    "click",
+    () => {
 
-    const confirmReset =
-        confirm(
-            "RESET SENICX AND COLLECTION?"
+
+        const confirmReset =
+            confirm(
+                "RESET SENICX AND COLLECTION?"
+            );
+
+
+        if (!confirmReset) {
+
+            return;
+
+        }
+
+
+        tokens = 7;
+
+        collected = [];
+
+
+        localStorage.setItem(
+            "senicxTokens",
+            tokens
         );
 
-    if (!confirmReset) {
-        return;
+
+        localStorage.setItem(
+            "abbissenicxCollection",
+            JSON.stringify(
+                collected
+            )
+        );
+
+
+        frontNumber.textContent =
+            "CARD 000";
+
+        frontTitle.textContent =
+            "INSERT SENICX";
+
+        backNumber.textContent =
+            "CARD 000";
+
+        backTitle.textContent =
+            "THE PLAYGROUND";
+
+        story.textContent =
+            "Your card is waiting.";
+
+
+        card.classList.remove(
+            "flipped"
+        );
+
+
+        status.textContent =
+            "INSERT SENICX";
+
+
+        updateDisplay();
+
     }
-
-    tokens = 3;
-    collected = [];
-
-    localStorage.setItem(
-        "senicxTokens",
-        tokens
-    );
-
-    localStorage.setItem(
-        "abbissenicxCollection",
-        JSON.stringify(collected)
-    );
-
-    frontNumber.textContent =
-        "CARD 000";
-
-    frontTitle.textContent =
-        "INSERT SENICX";
-
-    backNumber.textContent =
-        "CARD 000";
-
-    backTitle.textContent =
-        "THE PLAYGROUND";
-
-    story.textContent =
-        "Your card is waiting.";
-
-    card.classList.remove("flipped");
-
-    status.textContent =
-        "INSERT SENICX";
-
-    updateDisplay();
-
-});
+);
 
 
 /* =========================
