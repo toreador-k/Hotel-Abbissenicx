@@ -1,70 +1,228 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Card Machine</title>
+
+    <title>THE PLAYGROUND</title>
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+        }
+
+        .card-container {
+            width: 300px;
+            height: 420px;
+            margin: 30px auto;
+            perspective: 1000px;
+        }
+
+        .card {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+            cursor: pointer;
+        }
+
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border: 2px solid white;
+            box-sizing: border-box;
+            padding: 30px;
+        }
+
+        .card-front {
+            background: #222;
+        }
+
+        .card-back {
+            background: #eee;
+            color: #111;
+            transform: rotateY(180deg);
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .hint {
+            opacity: 0.6;
+            font-size: 13px;
+            margin-top: 15px;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<h1>THE PLAYGROUND</h1>
+    <h1>THE PLAYGROUND</h1>
 
-<div>
-    <p id="cardNumber">CARD 000</p>
-    <h2 id="cardTitle">THE UNKNOWN</h2>
-    <p id="cardStory">Draw a card to reveal its story.</p>
-</div>
+    <div class="card-container">
 
-<button id="drawButton">
-    DRAW A CARD
-</button>
+        <div class="card" id="card">
 
-<script>
-const cards = [
-    {
-        number: "CARD 001",
-        title: "THE FOOL",
-        story: "Every beginning carries a strange kind of courage."
-    },
-    {
-        number: "CARD 002",
-        title: "THE WANDERER",
-        story: "Some people leave because they know where they are going. Others leave because staying has become impossible."
-    },
-    {
-        number: "CARD 003",
-        title: "THE VOID",
-        story: "There is a silence that does not mean nothing. Sometimes the empty space is where everything begins to speak."
-    },
-    {
-        number: "CARD 004",
-        title: "THE HOTEL",
-        story: "Welcome to the hotel. Your room has already been prepared. You do not remember making a reservation."
-    },
-    {
-        number: "CARD 005",
-        title: "THE PLAYGROUND",
-        story: "The playground is still open after midnight. The lights are on. The music is playing."
-    },
-    {
-        number: "CARD 006",
-        title: "THE AFTERLIGHT",
-        story: "After everything disappears, something remains. Not an answer. Just enough light to prove that you were there."
-    }
-];
+            <!-- FRONT -->
 
-const button = document.getElementById("drawButton");
+            <div class="card-face card-front">
 
-button.addEventListener("click", function() {
+                <p id="cardNumber">
+                    CARD 000
+                </p>
 
-    const randomIndex = Math.floor(Math.random() * cards.length);
-    const selectedCard = cards[randomIndex];
+                <h2 id="cardTitle">
+                    THE UNKNOWN
+                </h2>
 
-    document.getElementById("cardNumber").textContent = selectedCard.number;
-    document.getElementById("cardTitle").textContent = selectedCard.title;
-    document.getElementById("cardStory").textContent = selectedCard.story;
+                <p>
+                    ✦
+                </p>
 
-});
-</script>
+                <p class="hint">
+                    Click the card to flip
+                </p>
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <div class="card-face card-back">
+
+                <h2 id="backTitle">
+                    THE UNKNOWN
+                </h2>
+
+                <p id="cardStory">
+                    Draw a card to reveal its story.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button id="drawButton">
+        DRAW A CARD
+    </button>
+
+
+    <script>
+
+        const cards = [
+
+            {
+                number: "CARD 001",
+                title: "THE FOOL",
+                story: "Every beginning carries a strange kind of courage."
+            },
+
+            {
+                number: "CARD 002",
+                title: "THE WANDERER",
+                story: "Some people leave because they know where they are going. Others leave because staying has become impossible."
+            },
+
+            {
+                number: "CARD 003",
+                title: "THE VOID",
+                story: "There is a silence that does not mean nothing. Sometimes the empty space is where everything begins to speak."
+            },
+
+            {
+                number: "CARD 004",
+                title: "THE HOTEL",
+                story: "Welcome to the hotel. Your room has already been prepared. You do not remember making a reservation."
+            },
+
+            {
+                number: "CARD 005",
+                title: "THE PLAYGROUND",
+                story: "The playground is still open after midnight. The lights are on. The music is playing."
+            },
+
+            {
+                number: "CARD 006",
+                title: "THE AFTERLIGHT",
+                story: "After everything disappears, something remains. Not an answer. Just enough light to prove that you were there."
+            }
+
+        ];
+
+
+        const button = document.getElementById("drawButton");
+
+        const card = document.getElementById("card");
+
+
+        // DRAW A CARD
+
+        button.addEventListener("click", function() {
+
+            const randomIndex =
+                Math.floor(Math.random() * cards.length);
+
+            const selectedCard =
+                cards[randomIndex];
+
+
+            document.getElementById("cardNumber").textContent =
+                selectedCard.number;
+
+            document.getElementById("cardTitle").textContent =
+                selectedCard.title;
+
+            document.getElementById("backTitle").textContent =
+                selectedCard.title;
+
+            document.getElementById("cardStory").textContent =
+                selectedCard.story;
+
+
+            // Always show the front after drawing
+
+            card.classList.remove("flipped");
+
+        });
+
+
+        // FLIP THE CARD
+
+        card.addEventListener("click", function() {
+
+            card.classList.toggle("flipped");
+
+        });
+
+    </script>
 
 </body>
 </html>
