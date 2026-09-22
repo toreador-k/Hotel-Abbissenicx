@@ -77,25 +77,40 @@ body::before {
 
   padding: 22px 22px 0;
 
-  border-radius: 34px 34px 18px 18px;
+  border-radius: 38px 38px 20px 20px;
 
   background:
+
+    /* subtle metallic surface */
     linear-gradient(
       145deg,
-      #d5d4da 0%,
-      #a7a6ad 18%,
-      #77757f 48%,
-      #b9b7bf 78%,
-      #77757e 100%
+      #dad9de 0%,
+      #aaa8b0 16%,
+      #77747d 42%,
+      #9c99a2 67%,
+      #66636c 100%
     );
 
-  border: 3px solid #55535c;
+  border: 3px solid #4c4952;
 
   box-shadow:
-    0 45px 80px rgba(0,0,0,.72),
-    0 15px 30px rgba(0,0,0,.5),
-    inset 0 2px 0 rgba(255,255,255,.65),
-    inset 0 -12px 25px rgba(0,0,0,.28);
+
+    /* machine shadow */
+    0 48px 90px rgba(0,0,0,.78),
+
+    0 18px 35px rgba(0,0,0,.55),
+
+    /* outer metallic edge */
+    inset 0 2px 0 rgba(255,255,255,.72),
+
+    inset 0 0 0 1px rgba(255,255,255,.16),
+
+    /* lower body depth */
+    inset 0 -18px 30px rgba(0,0,0,.32),
+
+    /* slight purple environment reflection */
+    inset 0 0 80px rgba(65,35,100,.08);
+
 }
 
 
@@ -164,11 +179,50 @@ body::before {
    TOP LABEL
 ===================================================== */
 
-.machine-top {
+.machine-top::after {
 
-  padding: 10px 12px 18px;
+  content: "";
+
+  position: absolute;
+
+  left: 4%;
+  right: 4%;
+  bottom: 0;
+
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0,0,0,.42) 12%,
+      rgba(255,255,255,.12) 50%,
+      rgba(0,0,0,.42) 88%,
+      transparent
+    );
+
+  box-shadow:
+    0 2px 3px rgba(0,0,0,.25);
+}
+
+  position: relative;
+
+  padding: 12px 18px 20px;
 
   text-align: center;
+
+  border-radius: 22px 22px 8px 8px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.10),
+      rgba(255,255,255,0) 45%,
+      rgba(0,0,0,.08)
+    );
+
+  box-shadow:
+    inset 0 -1px 0 rgba(0,0,0,.25);
 }
 
 .machine-brand {
