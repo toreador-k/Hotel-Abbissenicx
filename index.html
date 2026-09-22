@@ -994,35 +994,36 @@ JOYSTICK
 
   position: relative;
 
-  width: 78px;
-  height: 58px;
+  width: 72px;
+  height: 66px;
 
-  border-radius: 7px;
+  border-radius: 50%;
 
   background:
-    linear-gradient(
-      180deg,
-      #68656e 0%,
-      #4d4a52 48%,
-      #39363e 100%
+    radial-gradient(
+      circle at 50% 48%,
+      #69656f 0%,
+      #504c55 48%,
+      #343139 78%,
+      #29262e 100%
     );
 
   border: 4px solid #302d35;
 
   box-shadow:
 
-    inset 0 2px 0 rgba(255,255,255,.14),
+    inset 0 3px 3px rgba(255,255,255,.14),
 
-    inset 0 -6px 8px rgba(0,0,0,.38),
+    inset 0 -7px 10px rgba(0,0,0,.45),
 
     0 4px 0 #252229,
 
-    0 6px 8px rgba(0,0,0,.35);
+    0 7px 9px rgba(0,0,0,.35);
 
 }
 
 
-/* circular joystick base */
+/* joystick stem */
 
 .joystick::before {
 
@@ -1030,65 +1031,23 @@ JOYSTICK
 
   position: absolute;
 
-  width: 43px;
-  height: 43px;
+  width: 10px;
+  height: 28px;
 
   left: 50%;
   top: 50%;
 
   transform:
-    translate(-50%, -50%);
+    translate(-50%, -15%);
 
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #85818a 0%,
-      #65616a 35%,
-      #45424a 72%,
-      #302d35 100%
-    );
-
-  border: 3px solid #29262e;
-
-  box-shadow:
-
-    inset 0 2px 2px rgba(255,255,255,.16),
-
-    inset 0 -5px 7px rgba(0,0,0,.45),
-
-    0 2px 3px rgba(0,0,0,.45);
-
-}
-
-
-/* joystick stem */
-
-.joystick::after {
-
-  content: "";
-
-  position: absolute;
-
-  width: 9px;
-  height: 24px;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -50%)
-    translateY(-7px);
-
-  border-radius: 4px;
+  border-radius: 5px;
 
   background:
     linear-gradient(
       90deg,
-      #29262e,
-      #66616b 45%,
-      #302d35
+      #29262e 0%,
+      #77727c 45%,
+      #3b3841 100%
     );
 
   box-shadow:
@@ -1096,6 +1055,49 @@ JOYSTICK
     1px 2px 3px rgba(0,0,0,.55);
 
   z-index: 2;
+
+}
+
+
+/* joystick ball */
+
+.joystick::after {
+
+  content: "";
+
+  position: absolute;
+
+  width: 32px;
+  height: 32px;
+
+  left: 50%;
+  top: 3px;
+
+  transform:
+    translateX(-50%);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 27%,
+      #aaa6ae 0%,
+      #77737c 28%,
+      #4c4851 62%,
+      #29262e 100%
+    );
+
+  border: 3px solid #302d35;
+
+  box-shadow:
+
+    inset 0 2px 2px rgba(255,255,255,.18),
+
+    inset 0 -4px 5px rgba(0,0,0,.5),
+
+    0 4px 5px rgba(0,0,0,.45);
+
+  z-index: 3;
 
 }
 
@@ -1251,35 +1253,35 @@ SENICX SLOT
 
   position: relative;
 
-  width: 86px;
-  height: 50px;
+  width: 88px;
+  height: 58px;
 
   border-radius: 5px;
 
   background:
     linear-gradient(
-      180deg,
-      #6b6871 0%,
-      #504d55 50%,
-      #39363e 100%
+      145deg,
+      #77747d 0%,
+      #5b5861 38%,
+      #3c3941 100%
     );
 
   border: 4px solid #302d35;
 
   box-shadow:
 
-    inset 0 2px 0 rgba(255,255,255,.12),
+    inset 0 2px 0 rgba(255,255,255,.16),
 
-    inset 0 -5px 7px rgba(0,0,0,.4),
+    inset 0 -7px 10px rgba(0,0,0,.4),
 
     0 4px 0 #252229,
 
-    0 6px 8px rgba(0,0,0,.3);
+    0 7px 9px rgba(0,0,0,.35);
 
 }
 
 
-/* actual SENICX opening */
+/* recessed token opening */
 
 .slot-hole::after {
 
@@ -1287,28 +1289,28 @@ SENICX SLOT
 
   position: absolute;
 
-  width: 58px;
-  height: 10px;
+  width: 62px;
+  height: 13px;
 
   left: 50%;
-  top: 50%;
+  top: 55%;
 
   transform:
     translate(-50%, -50%);
 
+  border-radius: 3px;
+
   background:
     linear-gradient(
       180deg,
-      #08070a 0%,
-      #17151b 45%,
+      #050408 0%,
+      #16131a 45%,
       #050408 100%
     );
 
-  border-radius: 2px;
+  border:
 
-  border-top: 2px solid #17151b;
-
-  border-bottom: 2px solid #6c6871;
+    2px solid #242129;
 
   box-shadow:
 
@@ -1318,28 +1320,40 @@ SENICX SLOT
 
 }
 
-  /* =====================================================
+/* =====================================================
 SLOT LABEL
 ===================================================== */
 
 .slot-label {
 
-  margin-top: 7px;
+  position: relative;
 
-  text-align: center;
+  margin-top: -51px;
+
+  height: 16px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  pointer-events: none;
 
   font-family: "Courier New", monospace;
 
-  font-size: 7px;
+  font-size: 6px;
 
-  letter-spacing: .16em;
+  letter-spacing: .18em;
 
-  color: #35313a;
+  color: #302c35;
 
   text-shadow:
-    0 1px 0 rgba(255,255,255,.3);
+    0 1px 0 rgba(255,255,255,.25);
 
-  opacity: .8;
+  opacity: .9;
+
+  z-index: 5;
 
 }
 
@@ -1472,13 +1486,18 @@ RESET
   }
 
   .joystick {
-    width: 58px;
+    width: 48px;
     height: 48px;
   }
 
 .draw-button {
   width: 100px;
   height: 54px;
+}
+
+.slot-hole {
+  width: 68px;
+  height: 52px;
 }
 
 
