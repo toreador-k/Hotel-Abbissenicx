@@ -986,7 +986,6 @@ CONTROLS
   gap: 42px;
 }
 
-
 /* =====================================================
 JOYSTICK
 ===================================================== */
@@ -995,33 +994,35 @@ JOYSTICK
 
   position: relative;
 
-  width: 76px;
+  width: 78px;
   height: 58px;
 
-  border-radius: 4px;
+  border-radius: 7px;
 
   background:
     linear-gradient(
       180deg,
-      #69666e 0%,
-      #504d55 48%,
-      #3b3840 100%
+      #68656e 0%,
+      #4d4a52 48%,
+      #39363e 100%
     );
 
   border: 4px solid #302d35;
 
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.12),
-    inset 0 -4px 0 rgba(0,0,0,.35),
-    0 3px 0 #252229;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    inset 0 2px 0 rgba(255,255,255,.14),
+
+    inset 0 -6px 8px rgba(0,0,0,.38),
+
+    0 4px 0 #252229,
+
+    0 6px 8px rgba(0,0,0,.35);
+
 }
 
 
-/* JOYSTICK BASE */
+/* circular joystick base */
 
 .joystick::before {
 
@@ -1029,34 +1030,40 @@ JOYSTICK
 
   position: absolute;
 
-  width: 38px;
-  height: 38px;
+  width: 43px;
+  height: 43px;
 
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
   border-radius: 50%;
 
   background:
     radial-gradient(
-      circle at 38% 32%,
-      #77737c 0%,
-      #57535d 55%,
-      #37343c 100%
+      circle at 35% 30%,
+      #85818a 0%,
+      #65616a 35%,
+      #45424a 72%,
+      #302d35 100%
     );
 
   border: 3px solid #29262e;
 
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.14),
-    inset 0 -4px 0 rgba(0,0,0,.35),
-    0 2px 3px rgba(0,0,0,.55);
+
+    inset 0 2px 2px rgba(255,255,255,.16),
+
+    inset 0 -5px 7px rgba(0,0,0,.45),
+
+    0 2px 3px rgba(0,0,0,.45);
+
 }
 
 
-/* JOYSTICK STEM */
+/* joystick stem */
 
 .joystick::after {
 
@@ -1064,8 +1071,8 @@ JOYSTICK
 
   position: absolute;
 
-  width: 10px;
-  height: 27px;
+  width: 9px;
+  height: 24px;
 
   left: 50%;
   top: 50%;
@@ -1074,15 +1081,22 @@ JOYSTICK
     translate(-50%, -50%)
     translateY(-7px);
 
-  border-radius: 3px;
+  border-radius: 4px;
 
-  background: #35323a;
+  background:
+    linear-gradient(
+      90deg,
+      #29262e,
+      #66616b 45%,
+      #302d35
+    );
 
   box-shadow:
-    inset 1px 0 rgba(255,255,255,.1),
-    2px 2px 3px rgba(0,0,0,.5);
 
-  z-index: -1;
+    1px 2px 3px rgba(0,0,0,.55);
+
+  z-index: 2;
+
 }
 
 /* =====================================================
@@ -1237,29 +1251,35 @@ SENICX SLOT
 
   position: relative;
 
-  width: 82px;
-  height: 48px;
+  width: 86px;
+  height: 50px;
 
-  border-radius: 4px;
+  border-radius: 5px;
 
   background:
     linear-gradient(
       180deg,
-      #69666e 0%,
-      #504d55 48%,
-      #3b3840 100%
+      #6b6871 0%,
+      #504d55 50%,
+      #39363e 100%
     );
 
   border: 4px solid #302d35;
 
   box-shadow:
+
     inset 0 2px 0 rgba(255,255,255,.12),
-    inset 0 -4px 0 rgba(0,0,0,.35),
-    0 3px 0 #252229;
+
+    inset 0 -5px 7px rgba(0,0,0,.4),
+
+    0 4px 0 #252229,
+
+    0 6px 8px rgba(0,0,0,.3);
+
 }
 
 
-/* Actual SENICX opening */
+/* actual SENICX opening */
 
 .slot-hole::after {
 
@@ -1267,40 +1287,61 @@ SENICX SLOT
 
   position: absolute;
 
-  width: 56px;
-  height: 9px;
+  width: 58px;
+  height: 10px;
 
   left: 50%;
   top: 50%;
 
-  transform: translate(-50%, -50%);
+  transform:
+    translate(-50%, -50%);
 
-  background: #141218;
+  background:
+    linear-gradient(
+      180deg,
+      #08070a 0%,
+      #17151b 45%,
+      #050408 100%
+    );
 
-  border-radius: 1px;
+  border-radius: 2px;
 
-  border-top: 2px solid #0a090d;
+  border-top: 2px solid #17151b;
 
-  border-bottom: 1px solid #716d77;
+  border-bottom: 2px solid #6c6871;
 
   box-shadow:
-    inset 0 2px 4px rgba(0,0,0,.95);
+
+    inset 0 2px 4px rgba(0,0,0,.95),
+
+    0 1px 0 rgba(255,255,255,.08);
+
 }
 
-  .slot-label {
+  /* =====================================================
+SLOT LABEL
+===================================================== */
 
-  font-size: 8px;
+.slot-label {
 
-  letter-spacing: .22em;
-
-  color: #302d35;
+  margin-top: 7px;
 
   text-align: center;
 
+  font-family: "Courier New", monospace;
+
+  font-size: 7px;
+
+  letter-spacing: .16em;
+
+  color: #35313a;
+
   text-shadow:
-    0 1px 0 rgba(255,255,255,.12);
+    0 1px 0 rgba(255,255,255,.3);
+
+  opacity: .8;
+
 }
-  
 
 /* =====================================================
 RESET
@@ -1431,7 +1472,7 @@ RESET
   }
 
   .joystick {
-    width: 48px;
+    width: 58px;
     height: 48px;
   }
 
