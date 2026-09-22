@@ -221,14 +221,31 @@ body::before {
 .machine-brand img {
   display: block;
 
-  width: min(280px, 65%);
-  height: auto;
-  max-height: 48px;
+  width: 42px;
+  height: 42px;
 
   object-fit: contain;
 
   filter:
     drop-shadow(0 1px 1px rgba(0,0,0,.7));
+}
+
+.brand-hotel,
+.brand-name {
+  font-family: "Courier New", monospace;
+
+  font-size: 17px;
+  font-weight: bold;
+
+  letter-spacing: .16em;
+
+  color: #f1eff5;
+
+  text-shadow:
+    0 1px 0 #555,
+    0 2px 4px rgba(0,0,0,.5);
+
+  white-space: nowrap;
 }
 
 .machine-floor {
@@ -1304,11 +1321,10 @@ body::before {
 
   <div class="machine-top">
 
-    <div class="machine-brand">
-  <img
-    src="images/LOGO.png"
-    alt="HOTEL ABBISSENICX"
-  >
+<div class="machine-brand">
+  <span class="brand-hotel">HOTEL</span>
+  <img src="images/logo.png" alt="Abbissenicx">
+  <span class="brand-name">ABBISSENICX</span>
 </div>
 
     <div class="machine-floor">
