@@ -105,6 +105,10 @@ body::before {
 
     inset 0 0 0 1px rgba(255,255,255,.16),
 
+    inset 0 0 0 2px rgba(255,255,255,.08),
+
+    inset 0 0 18px rgba(255,255,255,.05),
+
     /* lower body depth */
     inset 0 -18px 30px rgba(0,0,0,.32),
 
@@ -210,15 +214,20 @@ body::before {
 
   /* 让顶部本身成为机身的一部分 */
   background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.08),
-      rgba(0,0,0,.08)
-    );
+  linear-gradient(
+    180deg,
+    rgba(255,255,255,.10),
+    rgba(255,255,255,.025) 35%,
+    rgba(0,0,0,.08) 100%
+  );
 
   box-shadow:
-    inset 0 -1px 0 rgba(0,0,0,.18),
-    inset 0 1px 0 rgba(255,255,255,.18);
+
+  inset 0 2px 0 rgba(255,255,255,.16),
+
+  inset 0 -2px 0 rgba(0,0,0,.24),
+
+  inset 0 -8px 14px rgba(0,0,0,.10);
 }
   
 .machine-brand {
@@ -236,6 +245,30 @@ body::before {
   background: transparent;
   border: none;
   box-shadow: none;
+}
+
+  .machine-top::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 5%;
+  right: 5%;
+
+  bottom: 0;
+
+  height: 3px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255,255,255,.18),
+      rgba(0,0,0,.38)
+    );
+
+  box-shadow:
+    0 1px 2px rgba(0,0,0,.25);
 }
 
 .machine-brand img {
