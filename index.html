@@ -1134,6 +1134,18 @@ INNER BUTTON
     0 0 8px rgba(80,22,220,.18);
 
   pointer-events: none;
+
+  z-index: 0;
+}
+
+  .draw-button span {
+
+  position: relative;
+
+  z-index: 1;
+
+  text-shadow:
+    0 1px 2px rgba(0,0,0,.65);
 }
 
 
@@ -1624,12 +1636,12 @@ RESET
 
       <div class="joystick"></div>
 
-      <button
-        class="draw-button"
-        id="drawButton"
-      >
-        DRAW
-      </button>
+     <button
+  class="draw-button"
+  id="drawButton"
+>
+  <span>DRAW</span>
+</button>
 
       <div class="token-slot">
 
