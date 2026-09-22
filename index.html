@@ -554,25 +554,17 @@ body::before {
 .crt-card-stage::before {
   content: "";
   position: absolute;
-  inset: 8%;
-  border: 1px solid rgba(130,100,220,.10);
-  border-radius: 18px;
+  inset: 3% 5%;
 
   background:
-    linear-gradient(
-      rgba(120,90,220,.045) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(120,90,220,.045) 1px,
-      transparent 1px
-    );
-
-  background-size: 42px 42px;
+    url("images/inner background.webp")
+    center
+    center
+    / contain
+    no-repeat;
 
   pointer-events: none;
-  opacity: .45;
+  opacity: .35;
   z-index: 0;
 }
   
