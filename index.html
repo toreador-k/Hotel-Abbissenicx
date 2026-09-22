@@ -1,95 +1,165 @@
 ```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Card Machine</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <link rel="stylesheet" href="style.css">
+    <title>The Playground - Card Machine</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
 </head>
+
 
 <body>
 
+
     <main class="container">
 
-        <p class="subtitle">A RANDOM CARD MACHINE</p>
 
-        <h1>THE PLAYGROUND</h1>
+        <p class="subtitle">
+            A RANDOM CARD MACHINE
+        </p>
+
+
+        <h1>
+            THE PLAYGROUND
+        </h1>
+
 
         <p class="instruction">
             Draw a card. Turn it over. See what waits behind it.
         </p>
 
-        <!-- CARD -->
-        <div class="card-container" id="cardContainer">
 
-            <div class="card" id="card">
 
-                <!-- FRONT -->
+        <!-- =========================
+             CARD
+        ========================== -->
+
+        <div
+            class="card-container"
+            id="cardContainer"
+        >
+
+            <div
+                class="card"
+                id="card"
+            >
+
+
+                <!-- FRONT OF CARD -->
+
                 <div class="card-face card-front">
 
-                    <div class="card-number" id="cardNumber">
+
+                    <div
+                        class="card-number"
+                        id="cardNumber"
+                    >
                         CARD 000
                     </div>
+
 
                     <div class="card-symbol">
                         ✦
                     </div>
 
+
                     <h2 id="cardTitle">
                         READY?
                     </h2>
+
 
                     <p class="click-hint">
                         CLICK TO FLIP
                     </p>
 
+
                 </div>
 
 
-                <!-- BACK -->
+
+                <!-- BACK OF CARD -->
+
                 <div class="card-face card-back">
+
 
                     <div class="card-number">
                         STORY
                     </div>
 
+
                     <h2 id="backTitle">
                         THE STORY
                     </h2>
+
 
                     <p id="cardStory">
                         Draw a card to reveal its story.
                     </p>
 
+
                     <p class="click-hint">
                         CLICK TO FLIP BACK
                     </p>
 
+
                 </div>
+
 
             </div>
 
         </div>
 
 
-        <!-- DRAW BUTTON -->
+
+        <!-- =========================
+             DRAW BUTTON
+        ========================== -->
 
         <button id="drawButton">
             DRAW A CARD
         </button>
 
+
+
+        <!-- =========================
+             DRAW COUNTER
+        ========================== -->
+
         <p class="draw-count">
-            CARDS DRAWN: <span id="drawCount">0</span>
+
+            CARDS DRAWN:
+
+            <span id="drawCount">
+                0
+            </span>
+
         </p>
+
 
     </main>
 
 
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
     <script src="script.js"></script>
 
+
 </body>
+
 </html>
-```
