@@ -1,576 +1,569 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hotel Abbissenicx — The Playground</title>
 
-    <title>Hotel Abbissenicx - The Playground</title>
+<style>
 
-    <style>
+/* =========================================
+   HOTEL ABBISSENICX
+   TERMINAL SYSTEM — V3
+   ========================================= */
 
-        * {
-            box-sizing: border-box;
-        }
+* {
+    box-sizing: border-box;
+}
 
+body {
+    margin: 0;
+    min-height: 100vh;
 
-        body {
-            margin: 0;
-            min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+    background:
+        radial-gradient(circle at 50% 35%, #aaa5ad 0%, #89848b 45%, #6f6b72 100%);
 
-            padding: 30px 15px;
+    font-family: "Courier New", monospace;
+    color: #2b2930;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    #21164a 0%,
-                    #0D0A1A 55%,
-                    #070611 100%
-                );
+    padding: 30px;
+}
 
-            color: #B7B3C2;
 
-            font-family:
-                "Courier New",
-                Courier,
-                monospace;
-        }
+/* =========================================
+   COMPUTER BODY
+   ========================================= */
 
+.computer {
+    width: min(900px, 95vw);
 
-        /* =========================
-           COMPUTER BODY
-        ========================= */
+    background:
+        linear-gradient(
+            145deg,
+            #b1adb3 0%,
+            #918c94 45%,
+            #7c7780 100%
+        );
 
-        .computer {
-            width: min(720px, 95vw);
+    border: 3px solid #55515a;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #777183,
-                    #514D5D 45%,
-                    #3B3847
-                );
+    border-radius: 24px;
 
-            border-radius: 22px;
+    padding: 28px;
 
-            padding: 28px 28px 35px;
+    box-shadow:
+        0 18px 35px rgba(25, 20, 30, 0.35),
+        inset 0 2px 1px rgba(255,255,255,0.35),
+        inset 0 -5px 12px rgba(40,35,45,0.25);
+}
 
-            box-shadow:
-                0 30px 80px rgba(0, 0, 0, 0.7),
-                inset 0 2px 2px rgba(255,255,255,0.12),
-                inset 0 -5px 10px rgba(0,0,0,0.3);
-        }
 
+/* =========================================
+   TOP LABEL
+   ========================================= */
 
-        /* =========================
-           TOP LABEL
-        ========================= */
+.machine-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        .brand {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    margin-bottom: 18px;
 
-            margin-bottom: 15px;
+    padding: 0 8px;
 
-            font-size: 12px;
-            letter-spacing: 2px;
+    font-size: 12px;
+    letter-spacing: 2px;
 
-            color: #D5D1DD;
-        }
+    color: #353139;
+}
 
+.machine-label strong {
+    color: #5016DC;
+}
 
-        .brand-name {
-            color: #5016DC;
 
-            font-weight: bold;
+/* =========================================
+   CRT SCREEN
+   ========================================= */
 
-            text-shadow:
-                0 0 8px rgba(80, 22, 220, 0.6);
-        }
+.screen-frame {
+    background: #4f4b53;
 
+    border: 8px solid #625e66;
 
-        .power-light {
-            width: 9px;
-            height: 9px;
+    border-radius: 18px;
 
-            border-radius: 50%;
+    padding: 12px;
 
-            background: #5016DC;
+    box-shadow:
+        inset 0 4px 10px rgba(0,0,0,0.45),
+        0 2px 4px rgba(255,255,255,0.15);
+}
 
-            box-shadow:
-                0 0 5px #5016DC,
-                0 0 14px #5016DC;
-        }
 
+.screen {
+    position: relative;
 
-        /* =========================
-           CRT FRAME
-        ========================= */
+    min-height: 680px;
 
-        .monitor {
-            background: #17142E;
+    overflow: hidden;
 
-            padding: 18px;
+    border-radius: 10px;
 
-            border-radius: 15px;
+    padding: 30px;
 
-            box-shadow:
-                inset 0 0 30px rgba(0,0,0,0.9),
-                inset 0 0 5px rgba(80,22,220,0.4);
-        }
+    background:
+        radial-gradient(
+            ellipse at center,
+            #30204d 0%,
+            #1d1831 55%,
+            #141221 100%
+        );
 
+    color: #d7d0e4;
 
-        /* =========================
-           CRT SCREEN
-        ========================= */
+    box-shadow:
+        inset 0 0 35px rgba(80,22,220,0.20),
+        inset 0 0 100px rgba(0,0,0,0.45);
+}
 
-        .screen {
-            position: relative;
 
-            min-height: 620px;
+/* =========================================
+   SUBTLE CRT SCANLINES
+   ========================================= */
 
-            overflow: hidden;
+.screen::after {
+    content: "";
 
-            border-radius: 18px;
+    position: absolute;
+    inset: 0;
 
-            padding: 35px;
+    pointer-events: none;
 
-            background:
-                radial-gradient(
-                    ellipse at center,
-                    #1B1740 0%,
-                    #100D27 65%,
-                    #090718 100%
-                );
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            rgba(255,255,255,0.025) 0px,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px,
+            transparent 4px
+        );
 
-            box-shadow:
-                inset 0 0 60px rgba(0,0,0,0.9),
-                inset 0 0 20px rgba(80,22,220,0.15);
+    opacity: 0.45;
+}
 
-            color: #B7B3C2;
-        }
 
+/* =========================================
+   SCREEN HEADER
+   ========================================= */
 
-        /* CRT scanlines */
+.header {
+    position: relative;
+    z-index: 2;
 
-        .screen::before {
-            content: "";
+    border-bottom: 1px solid #625b73;
 
-            position: absolute;
+    padding-bottom: 15px;
 
-            inset: 0;
+    margin-bottom: 20px;
+}
 
-            pointer-events: none;
+.header h1 {
+    margin: 0;
 
-            background:
-                repeating-linear-gradient(
-                    to bottom,
-                    rgba(255,255,255,0.025) 0px,
-                    rgba(255,255,255,0.025) 1px,
-                    rgba(0,0,0,0.08) 2px,
-                    rgba(0,0,0,0.08) 4px
-                );
+    font-size: clamp(22px, 4vw, 34px);
 
-            z-index: 20;
-        }
+    letter-spacing: 4px;
 
+    color: #dcd5e8;
+}
 
-        /* CRT glow */
+.header p {
+    margin: 8px 0 0;
 
-        .screen::after {
-            content: "";
+    font-size: 12px;
 
-            position: absolute;
+    letter-spacing: 2px;
 
-            inset: 0;
+    color: #9d94ae;
+}
 
-            pointer-events: none;
 
-            border-radius: 18px;
+/* =========================================
+   SYSTEM STATUS
+   ========================================= */
 
-            box-shadow:
-                inset 0 0 45px rgba(80,22,220,0.18);
+.status {
+    position: relative;
+    z-index: 2;
 
-            z-index: 21;
-        }
+    display: grid;
 
+    grid-template-columns: repeat(3, 1fr);
 
-        /* =========================
-           TERMINAL HEADER
-        ========================= */
+    gap: 10px;
 
-        .terminal-header {
-            position: relative;
+    margin-bottom: 30px;
+}
 
-            z-index: 5;
+.status-box {
+    border: 1px solid #514a61;
 
-            border-bottom: 1px solid #41377A;
+    padding: 9px 10px;
 
-            padding-bottom: 15px;
+    font-size: 10px;
 
-            margin-bottom: 25px;
-        }
+    color: #a9a1b6;
 
+    background: rgba(10,8,18,0.22);
+}
 
-        .hotel-name {
-            color: #5016DC;
+.status-box span {
+    display: block;
 
-            font-size: 20px;
+    margin-top: 4px;
 
-            letter-spacing: 3px;
+    color: #5016DC;
 
-            font-weight: bold;
+    font-weight: bold;
+}
 
-            text-shadow:
-                0 0 10px rgba(80,22,220,0.6);
-        }
 
+/* =========================================
+   CARD AREA
+   ========================================= */
 
-        .terminal-name {
-            margin-top: 6px;
+.card-area {
+    position: relative;
+    z-index: 2;
 
-            font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-            letter-spacing: 2px;
+    perspective: 1200px;
 
-            color: #747080;
-        }
+    margin: 25px 0 30px;
+}
 
 
-        /* =========================
-           SYSTEM STATUS
-        ========================= */
+/* =========================================
+   CARD
+   ========================================= */
 
-        .status {
-            position: relative;
+.card {
+    width: 270px;
+    height: 380px;
 
-            z-index: 5;
+    position: relative;
 
-            font-size: 11px;
+    cursor: pointer;
 
-            line-height: 1.8;
+    transform-style: preserve-3d;
 
-            color: #747080;
+    transition:
+        transform 0.65s cubic-bezier(.2,.75,.25,1);
+}
 
-            margin-bottom: 25px;
-        }
+.card.flipped {
+    transform: rotateY(180deg);
+}
 
 
-        .status span {
-            color: #A9A3B7;
-        }
+.card-face {
+    position: absolute;
 
+    width: 100%;
+    height: 100%;
 
-        .ready {
-            color: #5016DC !important;
+    backface-visibility: hidden;
 
-            text-shadow:
-                0 0 8px rgba(80,22,220,0.5);
-        }
+    border: 2px solid #5016DC;
 
+    border-radius: 4px;
 
-        /* =========================
-           CARD
-        ========================= */
+    overflow: hidden;
 
-        .card-container {
-            position: relative;
+    background:
+        linear-gradient(
+            145deg,
+            #272137,
+            #171522
+        );
 
-            z-index: 5;
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.4),
+        0 0 14px rgba(80,22,220,0.08);
+}
 
-            width: 270px;
-            height: 380px;
 
-            margin: 30px auto;
+/* =========================================
+   CARD FRONT
+   ========================================= */
 
-            perspective: 1000px;
-        }
+.card-front {
+    display: flex;
 
+    flex-direction: column;
 
-        .card {
-            width: 100%;
-            height: 100%;
+    justify-content: space-between;
 
-            position: relative;
+    padding: 20px;
+}
 
-            transform-style: preserve-3d;
+.card-number {
+    font-size: 11px;
 
-            transition:
-                transform 0.65s
-                cubic-bezier(0.4, 0.2, 0.2, 1);
+    letter-spacing: 2px;
 
-            cursor: pointer;
-        }
+    color: #8e849d;
+}
 
+.card-title {
+    font-size: 27px;
 
-        .card.flipped {
-            transform: rotateY(180deg);
-        }
+    letter-spacing: 2px;
 
+    color: #ddd5e7;
 
-        .card-face {
-            position: absolute;
+    text-align: center;
 
-            width: 100%;
-            height: 100%;
+    margin: auto 0;
+}
 
-            backface-visibility: hidden;
+.card-footer {
+    font-size: 9px;
 
-            display: flex;
+    letter-spacing: 1px;
 
-            flex-direction: column;
+    color: #756c82;
 
-            justify-content: center;
+    border-top: 1px solid #40384e;
 
-            align-items: center;
+    padding-top: 10px;
+}
 
-            text-align: center;
 
-            padding: 30px;
+/* =========================================
+   CARD BACK
+   ========================================= */
 
-            border: 1px solid #5016DC;
+.card-back {
+    transform: rotateY(180deg);
 
-            border-radius: 5px;
+    padding: 24px;
 
-            background:
-                radial-gradient(
-                    circle at center,
-                    #252052,
-                    #14112F 70%,
-                    #0C0920
-                );
+    display: flex;
 
-            box-shadow:
-                0 0 20px rgba(80,22,220,0.12),
-                inset 0 0 25px rgba(80,22,220,0.08);
-        }
+    flex-direction: column;
 
+    justify-content: space-between;
+}
 
-        .card-front {
-            color: #B7B3C2;
-        }
+.card-back .card-number {
+    color: #5016DC;
+}
 
+.card-story {
+    font-size: 13px;
 
-        .card-back {
-            transform: rotateY(180deg);
+    line-height: 1.7;
 
-            background:
-                linear-gradient(
-                    145deg,
-                    #1D1940,
-                    #100D27
-                );
+    color: #c9c1d4;
+}
 
-            color: #B7B3C2;
-        }
 
+/* =========================================
+   DRAW BUTTON
+   ========================================= */
 
-        .card-number {
-            font-size: 11px;
+.controls {
+    position: relative;
+    z-index: 2;
 
-            letter-spacing: 2px;
+    text-align: center;
+}
 
-            color: #747080;
+.draw-button {
+    font-family: "Courier New", monospace;
 
-            margin-bottom: 25px;
-        }
+    padding: 13px 30px;
 
+    border: 2px solid #5016DC;
 
-        .card-title {
-            color: #E7E3F0;
+    border-radius: 3px;
 
-            font-size: 25px;
+    background: #5016DC;
 
-            letter-spacing: 3px;
+    color: white;
 
-            margin: 0 0 25px;
+    font-size: 13px;
 
-            text-shadow:
-                0 0 8px rgba(80,22,220,0.35);
-        }
+    letter-spacing: 2px;
 
+    cursor: pointer;
 
-        .card-symbol {
-            color: #5016DC;
+    box-shadow:
+        0 3px 0 #351095;
 
-            font-size: 32px;
+    transition:
+        transform 0.1s ease,
+        background 0.2s ease;
+}
 
-            text-shadow:
-                0 0 12px rgba(80,22,220,0.8);
-        }
+.draw-button:hover {
+    background: #642ee4;
+}
 
+.draw-button:active {
+    transform: translateY(3px);
 
-        .card-hint {
-            margin-top: 30px;
+    box-shadow: none;
+}
 
-            font-size: 10px;
 
-            letter-spacing: 1px;
+/* =========================================
+   BOTTOM TERMINAL INFO
+   ========================================= */
 
-            color: #747080;
-        }
+.terminal-footer {
+    position: relative;
+    z-index: 2;
 
+    display: flex;
 
-        .card-story {
-            font-size: 13px;
+    justify-content: space-between;
 
-            line-height: 1.8;
+    margin-top: 28px;
 
-            max-width: 210px;
+    padding-top: 12px;
 
-            color: #B7B3C2;
-        }
+    border-top: 1px solid #40394d;
 
+    font-size: 9px;
 
-        /* =========================
-           DRAW BUTTON
-        ========================= */
+    color: #777084;
 
-        .controls {
-            position: relative;
+    letter-spacing: 1px;
+}
 
-            z-index: 10;
 
-            text-align: center;
+/* =========================================
+   PHYSICAL COMPUTER CONTROLS
+   ========================================= */
 
-            margin-top: 30px;
-        }
+.machine-controls {
+    display: flex;
 
+    align-items: center;
 
-        #drawButton {
-            border: 1px solid #5016DC;
+    justify-content: space-between;
 
-            background: #17142E;
+    margin-top: 18px;
 
-            color: #B7B3C2;
+    padding: 0 8px;
+}
 
-            padding: 14px 28px;
+.vent {
+    display: flex;
 
-            font-family:
-                "Courier New",
-                Courier,
-                monospace;
+    gap: 5px;
+}
 
-            font-size: 12px;
+.vent span {
+    width: 25px;
+    height: 4px;
 
-            letter-spacing: 2px;
+    background: #5e5961;
 
-            cursor: pointer;
+    border-radius: 2px;
+}
 
-            box-shadow:
-                0 0 10px rgba(80,22,220,0.12);
+.power-area {
+    display: flex;
 
-            transition:
-                background 0.2s,
-                color 0.2s,
-                box-shadow 0.2s;
-        }
+    align-items: center;
 
+    gap: 9px;
 
-        #drawButton:hover {
-            background: #5016DC;
+    font-size: 9px;
 
-            color: #FFFFFF;
+    letter-spacing: 1px;
 
-            box-shadow:
-                0 0 18px rgba(80,22,220,0.5);
-        }
+    color: #454149;
+}
 
+.power-light {
+    width: 9px;
+    height: 9px;
 
-        #drawButton:active {
-            transform: translateY(2px);
-        }
+    border-radius: 50%;
 
+    background: #5016DC;
 
-        /* =========================
-           FOOTER
-        ========================= */
+    box-shadow:
+        0 0 5px rgba(80,22,220,0.65);
+}
 
-        .footer {
-            position: relative;
 
-            z-index: 5;
+/* =========================================
+   MOBILE
+   ========================================= */
 
-            margin-top: 25px;
+@media (max-width: 650px) {
 
-            padding-top: 15px;
+    body {
+        padding: 12px;
+    }
 
-            border-top: 1px solid #302957;
+    .computer {
+        padding: 12px;
 
-            display: flex;
+        border-radius: 15px;
+    }
 
-            justify-content: space-between;
+    .screen-frame {
+        border-width: 5px;
 
-            font-size: 10px;
+        padding: 7px;
+    }
 
-            color: #565363;
+    .screen {
+        padding: 18px;
 
-            letter-spacing: 1px;
-        }
+        min-height: 620px;
+    }
 
+    .status {
+        grid-template-columns: 1fr;
+    }
 
-        /* =========================
-           MOBILE
-        ========================= */
+    .card {
+        width: 235px;
+        height: 335px;
+    }
 
-        @media (max-width: 600px) {
+    .card-title {
+        font-size: 23px;
+    }
 
-            .computer {
-                padding: 15px 15px 25px;
+    .terminal-footer {
+        flex-direction: column;
 
-                border-radius: 15px;
-            }
+        gap: 8px;
+    }
 
+    .machine-label {
+        font-size: 9px;
+    }
+}
 
-            .monitor {
-                padding: 10px;
-
-                border-radius: 12px;
-            }
-
-
-            .screen {
-                min-height: 600px;
-
-                padding: 22px 15px;
-
-                border-radius: 12px;
-            }
-
-
-            .hotel-name {
-                font-size: 15px;
-
-                letter-spacing: 2px;
-            }
-
-
-            .card-container {
-                width: 230px;
-
-                height: 325px;
-            }
-
-
-            .card-title {
-                font-size: 20px;
-            }
-
-
-            .card-story {
-                font-size: 12px;
-            }
-
-        }
-
-    </style>
-
+</style>
 </head>
 
 
@@ -579,321 +572,283 @@
 
 <div class="computer">
 
+    <!-- MACHINE LABEL -->
 
-    <!-- COMPUTER BRAND -->
+    <div class="machine-label">
 
-    <div class="brand">
-
-        <div>
+        <span>
             H.A. TERMINAL SYSTEM
-        </div>
+        </span>
 
-        <div class="power-light"></div>
+        <strong>
+            UNIT 077
+        </strong>
 
     </div>
 
 
-    <!-- MONITOR -->
+    <!-- SCREEN -->
 
-    <div class="monitor">
-
-
-        <!-- CRT SCREEN -->
-
-        <div class="screen">
+    <div class="screen">
 
 
-            <!-- HEADER -->
+        <!-- HEADER -->
 
-            <div class="terminal-header">
+        <div class="header">
 
-                <div class="hotel-name">
-                    HOTEL ABBISSENICX
-                </div>
+            <h1>
+                HOTEL ABBISSENICX
+            </h1>
 
-                <div class="terminal-name">
-                    GUEST SERVICES TERMINAL // THE PLAYGROUND
-                </div>
+            <p>
+                GUEST SERVICES TERMINAL // THE PLAYGROUND
+            </p>
 
+        </div>
+
+
+        <!-- STATUS -->
+
+        <div class="status">
+
+            <div class="status-box">
+                SYSTEM STATUS
+                <span>READY</span>
             </div>
 
-
-            <!-- STATUS -->
-
-            <div class="status">
-
-                SYSTEM STATUS .......
-                <span class="ready">READY</span>
-                <br>
-
-                CARD DATABASE .......
+            <div class="status-box">
+                CARD DATABASE
                 <span>ONLINE</span>
-                <br>
+            </div>
 
-                ROOM ASSIGNMENT .....
+            <div class="status-box">
+                ROOM ASSIGNMENT
                 <span>UNKNOWN</span>
-
             </div>
 
-
-            <!-- CARD -->
-
-            <div class="card-container">
-
-                <div class="card" id="card">
+        </div>
 
 
-                    <!-- FRONT -->
+        <!-- CARD -->
 
-                    <div class="card-face card-front">
+        <div class="card-area">
 
-                        <div
-                            class="card-number"
-                            id="cardNumber"
-                        >
-                            CARD 000
-                        </div>
+            <div class="card" id="card">
 
 
-                        <h2
-                            class="card-title"
-                            id="cardTitle"
-                        >
-                            THE UNKNOWN
-                        </h2>
+                <!-- FRONT -->
 
+                <div class="card-face card-front">
 
-                        <div class="card-symbol">
-                            ✦
-                        </div>
-
-
-                        <div class="card-hint">
-                            CLICK CARD TO TURN
-                        </div>
-
+                    <div class="card-number" id="cardNumber">
+                        CARD 001
                     </div>
 
-
-                    <!-- BACK -->
-
-                    <div class="card-face card-back">
-
-                        <div
-                            class="card-number"
-                        >
-                            CARD DATABASE
-                        </div>
-
-
-                        <h2
-                            class="card-title"
-                            id="backTitle"
-                        >
-                            THE UNKNOWN
-                        </h2>
-
-
-                        <p
-                            class="card-story"
-                            id="cardStory"
-                        >
-                            DRAW A CARD TO REVEAL ITS STORY.
-                        </p>
-
+                    <div class="card-title" id="cardTitle">
+                        THE FOOL
                     </div>
 
+                    <div class="card-footer">
+                        CLICK CARD TO INSPECT
+                    </div>
 
                 </div>
 
-            </div>
 
+                <!-- BACK -->
 
-            <!-- CONTROLS -->
+                <div class="card-face card-back">
 
-            <div class="controls">
+                    <div class="card-number">
+                        ARCHIVED RECORD
+                    </div>
 
-                <button id="drawButton">
-                    &gt; DRAW A CARD
-                </button>
+                    <div class="card-story" id="cardStory">
+                        A guest record has been recovered from the hotel database.
+                        Further information is unavailable.
+                    </div>
 
-            </div>
+                    <div class="card-footer">
+                        END OF RECORD
+                    </div>
 
-
-            <!-- FOOTER -->
-
-            <div class="footer">
-
-                <div>
-                    HOTEL ABBISSENICX
                 </div>
 
-                <div>
-                    TERMINAL 01
-                </div>
 
             </div>
 
+        </div>
+
+
+        <!-- BUTTON -->
+
+        <div class="controls">
+
+            <button
+                class="draw-button"
+                id="drawButton">
+                DRAW CARD
+            </button>
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="terminal-footer">
+
+            <span>
+                HOTEL ABBISSENICX // INTERNAL USE ONLY
+            </span>
+
+            <span>
+                RECORDS: 006
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- PHYSICAL COMPUTER BOTTOM -->
+
+    <div class="machine-controls">
+
+        <div class="vent">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="power-area">
+
+            <div class="power-light"></div>
+
+            POWER
 
         </div>
 
     </div>
+
 
 </div>
 
 
 <script>
 
+/* =========================================
+   CARD DATABASE
+   ========================================= */
 
-    /* =========================
-       CARD DATABASE
-    ========================= */
+const cards = [
 
-    const cards = [
+    {
+        number: "CARD 001",
+        title: "THE FOOL",
+        story:
+        "The first record contains a guest who arrived without a reservation. Nobody remembers seeing them enter the hotel."
+    },
 
-        {
-            number: "CARD 001",
+    {
+        number: "CARD 002",
+        title: "THE WANDERER",
+        story:
+        "A guest was found wandering through corridors that do not appear on the hotel floor plan."
+    },
 
-            title: "THE FOOL",
+    {
+        number: "CARD 003",
+        title: "THE VOID",
+        story:
+        "The archive contains an empty record. The system insists that something should be here."
+    },
 
-            story:
-                "Every beginning carries a strange kind of courage."
-        },
+    {
+        number: "CARD 004",
+        title: "THE HOTEL",
+        story:
+        "Hotel Abbissenicx has existed for longer than the current records suggest. Nobody knows who built it."
+    },
 
+    {
+        number: "CARD 005",
+        title: "THE PLAYGROUND",
+        story:
+        "Guests are advised not to enter the playground after midnight. The reason for this warning has been removed."
+    },
 
-        {
-            number: "CARD 002",
+    {
+        number: "CARD 006",
+        title: "THE AFTERLIGHT",
+        story:
+        "The final light in the corridor remains switched on. Maintenance reports that nobody has been assigned to turn it off."
+    }
 
-            title: "THE WANDERER",
-
-            story:
-                "Some people leave because they know where they are going. Others leave because staying has become impossible."
-        },
-
-
-        {
-            number: "CARD 003",
-
-            title: "THE VOID",
-
-            story:
-                "There is a silence that does not mean nothing. Sometimes the empty space is where everything begins to speak."
-        },
-
-
-        {
-            number: "CARD 004",
-
-            title: "THE HOTEL",
-
-            story:
-                "Welcome to the hotel. Your room has already been prepared. You do not remember making a reservation."
-        },
-
-
-        {
-            number: "CARD 005",
-
-            title: "THE PLAYGROUND",
-
-            story:
-                "The playground is still open after midnight. The lights are on. The music is playing."
-        },
+];
 
 
-        {
-            number: "CARD 006",
+/* =========================================
+   ELEMENTS
+   ========================================= */
 
-            title: "THE AFTERLIGHT",
+const card = document.getElementById("card");
 
-            story:
-                "After everything disappears, something remains. Not an answer. Just enough light to prove that you were there."
-        }
+const cardNumber = document.getElementById("cardNumber");
 
-    ];
+const cardTitle = document.getElementById("cardTitle");
 
+const cardStory = document.getElementById("cardStory");
 
-    /* =========================
-       ELEMENTS
-    ========================= */
-
-    const button =
-        document.getElementById("drawButton");
-
-    const card =
-        document.getElementById("card");
+const drawButton = document.getElementById("drawButton");
 
 
-    /* =========================
-       DRAW CARD
-    ========================= */
+/* =========================================
+   CARD FLIP
+   ========================================= */
 
-    button.addEventListener(
-        "click",
-        function() {
+card.addEventListener("click", function () {
 
-            const randomIndex =
-                Math.floor(
-                    Math.random() * cards.length
-                );
+    card.classList.toggle("flipped");
+
+});
 
 
-            const selectedCard =
-                cards[randomIndex];
+/* =========================================
+   RANDOM CARD DRAW
+   ========================================= */
+
+drawButton.addEventListener("click", function () {
+
+    const randomIndex =
+        Math.floor(Math.random() * cards.length);
+
+    const selectedCard =
+        cards[randomIndex];
 
 
-            document.getElementById(
-                "cardNumber"
-            ).textContent =
-                selectedCard.number;
+    /* Return card to front */
+
+    card.classList.remove("flipped");
 
 
-            document.getElementById(
-                "cardTitle"
-            ).textContent =
-                selectedCard.title;
+    /* Update information */
 
+    cardNumber.textContent =
+        selectedCard.number;
 
-            document.getElementById(
-                "backTitle"
-            ).textContent =
-                selectedCard.title;
+    cardTitle.textContent =
+        selectedCard.title;
 
+    cardStory.textContent =
+        selectedCard.story;
 
-            document.getElementById(
-                "cardStory"
-            ).textContent =
-                selectedCard.story;
-
-
-            /* Always return to front */
-
-            card.classList.remove(
-                "flipped"
-            );
-
-        }
-    );
-
-
-    /* =========================
-       FLIP CARD
-    ========================= */
-
-    card.addEventListener(
-        "click",
-        function() {
-
-            card.classList.toggle(
-                "flipped"
-            );
-
-        }
-    );
+});
 
 
 </script>
-
 
 </body>
 </html>
