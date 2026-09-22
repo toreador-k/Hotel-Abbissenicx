@@ -551,6 +551,31 @@ body::before {
 
 /* subtle screen floor glow */
 
+.crt-card-stage::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border: 1px solid rgba(130,100,220,.10);
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      rgba(120,90,220,.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(120,90,220,.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+
+  pointer-events: none;
+  opacity: .45;
+  z-index: 0;
+}
+  
 .crt-card-stage::after {
 
   content: "";
@@ -575,6 +600,8 @@ body::before {
     );
 
   filter: blur(14px);
+
+  z-index: 1;
 }
 
 
