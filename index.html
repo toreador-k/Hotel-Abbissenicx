@@ -1256,12 +1256,13 @@ SENICX SLOT
   position: relative;
 
   width: 88px;
-  height: 66px;
+  height: auto;
 
   display: flex;
 
-  align-items: flex-start;
-  justify-content: center;
+  flex-direction: column;
+
+  align-items: center;
 
 }
   
@@ -1342,12 +1343,9 @@ SLOT LABEL
 
 .slot-label {
 
-  position: absolute;
+  margin-top: 6px;
 
-  top: 51px;
-
-  left: 0;
-  right: 0;
+  width: 100%;
 
   text-align: center;
 
@@ -1357,12 +1355,12 @@ SLOT LABEL
 
   letter-spacing: .18em;
 
-  color: #302c35;
+  color: #3b3740;
 
   text-shadow:
-    0 1px 0 rgba(255,255,255,.25);
+    0 1px 0 rgba(255,255,255,.22);
 
-  opacity: .9;
+  opacity: .8;
 
   pointer-events: none;
 
