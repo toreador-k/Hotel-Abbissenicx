@@ -995,23 +995,33 @@ JOYSTICK
 
   position: relative;
 
-  width: 68px;
-  height: 68px;
+  width: 76px;
+  height: 58px;
 
-  border-radius: 50%;
+  border-radius: 4px;
 
-  background: #4d4a52;
+  background:
+    linear-gradient(
+      180deg,
+      #69666e 0%,
+      #504d55 48%,
+      #3b3840 100%
+    );
 
-  border: 5px solid #302d35;
+  border: 4px solid #302d35;
 
   box-shadow:
     inset 0 2px 0 rgba(255,255,255,.12),
-    inset 0 -4px 0 rgba(0,0,0,.3),
+    inset 0 -4px 0 rgba(0,0,0,.35),
     0 3px 0 #252229;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 
-/* Metal / plastic centre */
+/* JOYSTICK BASE */
 
 .joystick::before {
 
@@ -1019,8 +1029,8 @@ JOYSTICK
 
   position: absolute;
 
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
 
   left: 50%;
   top: 50%;
@@ -1029,18 +1039,24 @@ JOYSTICK
 
   border-radius: 50%;
 
-  background: #77737d;
+  background:
+    radial-gradient(
+      circle at 38% 32%,
+      #77737c 0%,
+      #57535d 55%,
+      #37343c 100%
+    );
 
-  border: 3px solid #343139;
+  border: 3px solid #29262e;
 
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.16),
-    inset 0 -3px 0 rgba(0,0,0,.3),
-    0 2px 2px rgba(0,0,0,.5);
+    inset 0 2px 0 rgba(255,255,255,.14),
+    inset 0 -4px 0 rgba(0,0,0,.35),
+    0 2px 3px rgba(0,0,0,.55);
 }
 
 
-/* Small joystick stem */
+/* JOYSTICK STEM */
 
 .joystick::after {
 
@@ -1049,22 +1065,22 @@ JOYSTICK
   position: absolute;
 
   width: 10px;
-  height: 22px;
+  height: 27px;
 
   left: 50%;
   top: 50%;
 
   transform:
     translate(-50%, -50%)
-    translateY(-8px);
+    translateY(-7px);
 
-  border-radius: 5px;
+  border-radius: 3px;
 
-  background: #3a373f;
+  background: #35323a;
 
   box-shadow:
-    inset 1px 0 rgba(255,255,255,.12),
-    2px 2px 3px rgba(0,0,0,.45);
+    inset 1px 0 rgba(255,255,255,.1),
+    2px 2px 3px rgba(0,0,0,.5);
 
   z-index: -1;
 }
@@ -1222,22 +1238,28 @@ SENICX SLOT
   position: relative;
 
   width: 82px;
-  height: 46px;
+  height: 48px;
 
-  border-radius: 3px;
+  border-radius: 4px;
 
-  background: #514e57;
+  background:
+    linear-gradient(
+      180deg,
+      #69666e 0%,
+      #504d55 48%,
+      #3b3840 100%
+    );
 
   border: 4px solid #302d35;
 
   box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.1),
+    inset 0 2px 0 rgba(255,255,255,.12),
     inset 0 -4px 0 rgba(0,0,0,.35),
     0 3px 0 #252229;
 }
 
 
-/* Actual slot */
+/* Actual SENICX opening */
 
 .slot-hole::after {
 
@@ -1246,24 +1268,39 @@ SENICX SLOT
   position: absolute;
 
   width: 56px;
-  height: 8px;
+  height: 9px;
 
   left: 50%;
   top: 50%;
 
   transform: translate(-50%, -50%);
 
-  background: #17151b;
+  background: #141218;
 
-  border-radius: 2px;
+  border-radius: 1px;
 
-  border-top: 2px solid #0d0c10;
+  border-top: 2px solid #0a090d;
 
-  border-bottom: 1px solid #6b6770;
+  border-bottom: 1px solid #716d77;
 
   box-shadow:
-    inset 0 2px 3px rgba(0,0,0,.9);
+    inset 0 2px 4px rgba(0,0,0,.95);
 }
+
+  .slot-label {
+
+  font-size: 8px;
+
+  letter-spacing: .22em;
+
+  color: #302d35;
+
+  text-align: center;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.12);
+}
+  
 
 /* =====================================================
 RESET
@@ -1398,68 +1435,9 @@ RESET
     height: 48px;
   }
 
-  .draw-button {
-
-  position: relative;
-
-  width: 124px;
-  height: 62px;
-
-  border-radius: 5px;
-
-  border: 3px solid #29262e;
-
-  background:
-    linear-gradient(
-      180deg,
-      #7046e8 0%,
-      #5016dc 50%,
-      #35109a 100%
-    );
-
-  color: #e8e5ed;
-
-  font-family: "Courier New", monospace;
-
-  font-weight: bold;
-
-  font-size: 13px;
-
-  letter-spacing: .16em;
-
-  cursor: pointer;
-
-  box-shadow:
-    inset 0 2px 0 rgba(255,255,255,.22),
-    inset 0 -7px 10px rgba(0,0,0,.35),
-    0 4px 0 #25222a,
-    0 6px 8px rgba(0,0,0,.35);
-
-  transition:
-    transform .08s ease,
-    box-shadow .08s ease;
-}
-
-
-.draw-button:hover {
-
-  filter: brightness(1.08);
-}
-
-
-.draw-button:active {
-
-  transform: translateY(4px);
-
-  box-shadow:
-    inset 0 3px 8px rgba(0,0,0,.5),
-    0 1px 2px rgba(0,0,0,.4);
-}
-
-  .slot-hole {
-    width: 60px;
-  }
-
+.draw-button {
+  width: 100px;
+  height: 54px;
 }
 
 
