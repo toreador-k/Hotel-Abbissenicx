@@ -1,6 +1,5 @@
 ```javascript
 const cards = [
-
     {
         number: "CARD 001",
         title: "THE FOOL",
@@ -10,143 +9,68 @@ const cards = [
     {
         number: "CARD 002",
         title: "THE WANDERER",
-        story: "Some people leave because they know where they are going. Others leave because staying has become impossible."
+        story: "Some people leave because they know where they are going."
     },
 
     {
         number: "CARD 003",
         title: "THE VOID",
-        story: "There is a silence that does not mean nothing. Sometimes the empty space is where everything begins to speak."
+        story: "Sometimes the empty space is where everything begins to speak."
     },
 
     {
         number: "CARD 004",
         title: "THE HOTEL",
-        story: "Welcome to the hotel. Your room has already been prepared. You do not remember making a reservation."
+        story: "Welcome to the hotel. Your room has already been prepared."
     },
 
     {
         number: "CARD 005",
         title: "THE PLAYGROUND",
-        story: "The playground is still open after midnight. The lights are on. The music is playing."
+        story: "The playground is still open after midnight."
     },
 
     {
         number: "CARD 006",
         title: "THE AFTERLIGHT",
-        story: "After everything disappears, something remains. Not an answer. Just enough light to prove that you were there."
+        story: "After everything disappears, something remains."
     }
-
 ];
-
 
 
 let drawTotal = 0;
 
-let currentCard = null;
-
-
-
-const card =
-    document.getElementById("card");
-
-const cardContainer =
-    document.getElementById("cardContainer");
-
-const drawButton =
-    document.getElementById("drawButton");
-
-const cardNumber =
-    document.getElementById("cardNumber");
-
-const cardTitle =
-    document.getElementById("cardTitle");
-
-const backTitle =
-    document.getElementById("backTitle");
-
-const cardStory =
-    document.getElementById("cardStory");
-
-const drawCount =
-    document.getElementById("drawCount");
-
-
 
 function drawCard() {
 
+    alert("DRAW BUTTON WORKS!");
 
-    const randomIndex =
-        Math.floor(
-            Math.random() * cards.length
-        );
+    const randomIndex = Math.floor(Math.random() * cards.length);
 
-
-    currentCard =
-        cards[randomIndex];
+    const selectedCard = cards[randomIndex];
 
 
-    cardNumber.textContent =
-        currentCard.number;
+    document.getElementById("cardNumber").textContent =
+        selectedCard.number;
+
+    document.getElementById("cardTitle").textContent =
+        selectedCard.title;
+
+    document.getElementById("backTitle").textContent =
+        selectedCard.title;
+
+    document.getElementById("cardStory").textContent =
+        selectedCard.story;
 
 
-    cardTitle.textContent =
-        currentCard.title;
-
-
-    backTitle.textContent =
-        currentCard.title;
-
-
-    cardStory.textContent =
-        currentCard.story;
-
-
-    card.classList.remove("flipped");
+    document.getElementById("card").classList.remove("flipped");
 
 
     drawTotal++;
 
-
-    drawCount.textContent =
+    document.getElementById("drawCount").textContent =
         drawTotal;
-
-
-    cardContainer.classList.remove(
-        "drawing"
-    );
-
-
-    void cardContainer.offsetWidth;
-
-
-    cardContainer.classList.add(
-        "drawing"
-    );
-
 }
 
 
-
-card.addEventListener(
-    "click",
-    function() {
-
-        if (currentCard === null) {
-            return;
-        }
-
-
-        card.classList.toggle(
-            "flipped"
-        );
-
-    }
-);
-
-
-
-drawButton.addEventListener(
-    "click",
-    drawCard
-);
+document.getElementById("drawButton").onclick = drawCard;
