@@ -997,6 +997,8 @@ JOYSTICK
   width: 72px;
   height: 66px;
 
+  transform: translateY(7px);
+
   border-radius: 50%;
 
   background:
@@ -1249,6 +1251,20 @@ PRESS
 SENICX SLOT
 ===================================================== */
 
+.token-slot {
+
+  position: relative;
+
+  width: 88px;
+  height: 66px;
+
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: center;
+
+}
+  
 .slot-hole {
 
   position: relative;
@@ -1326,19 +1342,14 @@ SLOT LABEL
 
 .slot-label {
 
-  position: relative;
+  position: absolute;
 
-  margin-top: -51px;
+  top: 51px;
 
-  height: 16px;
+  left: 0;
+  right: 0;
 
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  pointer-events: none;
+  text-align: center;
 
   font-family: "Courier New", monospace;
 
@@ -1353,7 +1364,7 @@ SLOT LABEL
 
   opacity: .9;
 
-  z-index: 5;
+  pointer-events: none;
 
 }
 
