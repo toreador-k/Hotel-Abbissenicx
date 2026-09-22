@@ -21,11 +21,30 @@ body {
 
 body {
   min-height: 100vh;
-
   font-family: "Courier New", monospace;
   color: #eeeaff;
 
-  background-image:
+  background: #0a0619;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px 20px;
+
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+
+  position: fixed;
+  inset: 0;
+
+  z-index: -2;
+
+  background:
     linear-gradient(
       rgba(10, 6, 25, 0.42),
       rgba(10, 6, 25, 0.58)
@@ -33,16 +52,9 @@ body {
     url("images/background.webp");
 
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 40px 20px;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
-
 
 /* =====================================================
    MACHINE
