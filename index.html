@@ -195,43 +195,33 @@ body::before {
   align-items: center;
   justify-content: center;
 
-  gap: 9px;
+  gap: 10px;
 
   width: fit-content;
   max-width: 90%;
 
-  min-height: 38px;
-  padding: 5px 15px;
+  padding: 3px 10px;
 
-  border-radius: 7px;
+  background: transparent;
 
-  background:
-    linear-gradient(
-      180deg,
-      #77737d 0%,
-      #595660 45%,
-      #44414a 100%
-    );
-
-  border: 2px solid #4a4750;
+  border: none;
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.25),
-    inset 0 -2px 5px rgba(0,0,0,.35),
-    0 2px 5px rgba(0,0,0,.35);
+    0 1px 0 rgba(255,255,255,.35),
+    0 2px 2px rgba(0,0,0,.28);
 }
 
 .machine-brand img {
   display: block;
 
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
 
   object-fit: contain;
 
   filter:
-    drop-shadow(0 0 3px rgba(80,22,220,.55))
-    drop-shadow(0 1px 1px rgba(0,0,0,.6));
+    drop-shadow(0 0 3px rgba(80,22,220,.45))
+    drop-shadow(0 1px 1px rgba(0,0,0,.45));
 }
 
 .brand-hotel,
@@ -243,11 +233,11 @@ body::before {
 
   letter-spacing: .13em;
 
-  color: #f1eff5;
+  color: #403c46;
 
   text-shadow:
-    0 1px 0 #555,
-    0 2px 3px rgba(0,0,0,.45);
+    0 1px 0 rgba(255,255,255,.55),
+    0 1px 2px rgba(0,0,0,.3);
 
   white-space: nowrap;
 }
@@ -255,12 +245,15 @@ body::before {
 .machine-floor {
   margin: 0;
 
-  font-size: 10px;
-  letter-spacing: .35em;
+  font-size: 9px;
+  letter-spacing: .38em;
 
-  color: #332b42;
+  color: #4b4652;
 
   text-align: center;
+
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.45);
 }
 
 
