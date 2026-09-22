@@ -1,5 +1,4 @@
-alert("JavaScript is working!");
-
+```javascript
 const cards = [
 
     {
@@ -39,3 +38,115 @@ const cards = [
     }
 
 ];
+
+
+
+let drawTotal = 0;
+
+let currentCard = null;
+
+
+
+const card =
+    document.getElementById("card");
+
+const cardContainer =
+    document.getElementById("cardContainer");
+
+const drawButton =
+    document.getElementById("drawButton");
+
+const cardNumber =
+    document.getElementById("cardNumber");
+
+const cardTitle =
+    document.getElementById("cardTitle");
+
+const backTitle =
+    document.getElementById("backTitle");
+
+const cardStory =
+    document.getElementById("cardStory");
+
+const drawCount =
+    document.getElementById("drawCount");
+
+
+
+function drawCard() {
+
+
+    const randomIndex =
+        Math.floor(
+            Math.random() * cards.length
+        );
+
+
+    currentCard =
+        cards[randomIndex];
+
+
+    cardNumber.textContent =
+        currentCard.number;
+
+
+    cardTitle.textContent =
+        currentCard.title;
+
+
+    backTitle.textContent =
+        currentCard.title;
+
+
+    cardStory.textContent =
+        currentCard.story;
+
+
+    card.classList.remove("flipped");
+
+
+    drawTotal++;
+
+
+    drawCount.textContent =
+        drawTotal;
+
+
+    cardContainer.classList.remove(
+        "drawing"
+    );
+
+
+    void cardContainer.offsetWidth;
+
+
+    cardContainer.classList.add(
+        "drawing"
+    );
+
+}
+
+
+
+card.addEventListener(
+    "click",
+    function() {
+
+        if (currentCard === null) {
+            return;
+        }
+
+
+        card.classList.toggle(
+            "flipped"
+        );
+
+    }
+);
+
+
+
+drawButton.addEventListener(
+    "click",
+    drawCard
+);
