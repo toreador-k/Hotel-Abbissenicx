@@ -522,25 +522,57 @@ body::before{
   font-size:12px;
 }
 
-/* CONTROL PANEL */
+/* CONTROL PANEL — projecting, inset mechanical deck */
 
 .control-panel{
   position:relative;
+  isolation:isolate;
   margin:18px -22px -26px;
   padding:22px 24px 18px;
-  border-top:5px solid #17121c;
-  border-radius:0 0 10px 10px;
+  border:1px solid #81718a;
+  border-top:0;
+  border-radius:0 0 13px 13px;
   background:
-    linear-gradient(
-      180deg,
-      #62536a,
-      #403448 24%,
-      #2a2231
-    );
+    linear-gradient(180deg, #71617a 0%, #51445a 8%, #393041 32%, #29222f 78%, #211a27 100%);
   box-shadow:
-    inset 0 3px #b9a4c044,
-    inset 0 -12px 18px #100b14,
-    0 8px 12px #0006;
+    inset 0 1px 0 #e2d3ec66,
+    inset 0 9px 13px #120d18aa,
+    inset 0 -3px 0 #100b14,
+    0 3px 0 #17111b,
+    0 10px 16px #0008;
+}
+
+/* Narrow seam where the deck meets the CRT housing. */
+.control-panel::before{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  top:0;
+  left:12px;
+  right:12px;
+  height:5px;
+  border-top:1px solid #cbb8d466;
+  border-bottom:1px solid #100b14;
+  background:linear-gradient(180deg,#211a27,#403449);
+  box-shadow:0 2px 5px #0008;
+  pointer-events:none;
+}
+
+/* Thick front lip gives the deck a visible physical edge. */
+.control-panel::after{
+  content:"";
+  position:absolute;
+  z-index:-1;
+  left:0;
+  right:0;
+  bottom:-7px;
+  height:8px;
+  border:1px solid #51445b;
+  border-top:1px solid #8a7894;
+  border-radius:0 0 12px 12px;
+  background:linear-gradient(180deg,#39303f,#201a26 72%,#120e15);
+  box-shadow:0 5px 8px #0008;
+  pointer-events:none;
 }
 
 .controls{
@@ -680,6 +712,11 @@ body::before{
   color:#d9c6e2;
   font-size:8px;
   letter-spacing:.18em;
+}
+
+/* Reset will return as an external emergency control later. */
+.reset-button{
+  display:none;
 }
 
 .reset-button{
