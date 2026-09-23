@@ -1,1816 +1,634 @@
-@font-face {
-  font-family: "Tickerbit Mono";
-  src: url("fonts/Tickerbit-mono.woff") format("woff");
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-* {
-  box-sizing: border-box;
-}
+<title>HOTEL ABBISSENICX // THE PLAYGROUND</title>
 
-html,
-body {
-  margin: 0;
-  padding: 0;
-  min-height: 100%;
-}
+<style>
+@font-face{font-family:Tickerbit Mono;src:url("fonts/Tickerbit-mono.woff") format("woff")}
+:root{color-scheme:dark;--ink:#f2eaff;--cyan:#75f4e4}*{box-sizing:border-box}html,body{margin:0;min-height:100%}
+body{min-height:100vh;display:grid;place-items:center;padding:30px 14px;overflow-x:hidden;color:var(--ink);font-family:"Courier New",monospace;background:radial-gradient(ellipse at 50% 18%,#433252,#17101f 48%,#09070d)}
+body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff1 4px)}
+.machine{width:min(850px,96vw);position:relative;padding:18px 22px 26px;border:5px solid #17121c;border-radius:25px 25px 14px 14px;background:linear-gradient(90deg,#211a27,#493b50 8%,#34283d 22%,#403449 50%,#34283d 78%,#493b50 92%,#211a27);box-shadow:inset 0 2px #8c7594,inset 8px 0 14px #100c15,inset -8px 0 14px #100c15,0 28px 55px #000b}
+.machine:before{content:"";position:absolute;inset:9px;border:1px solid #c9a8dc33;border-radius:17px;pointer-events:none}.machine-top{min-height:100px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:5px 10px 15px;text-align:center;text-shadow:0 0 14px #bb76ff80}
+.machine-brand{display:flex;align-items:center;justify-content:center;gap:12px;font-family:Tickerbit Mono,"Courier New",monospace;font-size:clamp(19px,4vw,31px);letter-spacing:.08em;color:#f4ddff}.machine-brand img{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px #bd83ff)}.machine-floor{color:#d4b8f6;font-size:11px;letter-spacing:.34em}
+.crt-frame{position:relative;padding:18px;border:7px solid #17121c;border-radius:32px 32px 23px 23px;background:linear-gradient(145deg,#514558,#211a27 26%,#100d13 72%,#45374b);box-shadow:inset 0 3px #a58eaa55,inset 0 -12px 22px #000,0 7px 0 #110c14,0 14px 20px #0008}
+.crt{position:relative;min-height:520px;overflow:hidden;border:7px solid #08060b;border-radius:23px;background:radial-gradient(ellipse at center,#26133c,#100b1a 72%,#08060d);box-shadow:inset 0 0 0 2px #443057,inset 0 0 50px #000,0 0 18px #9a50e333}.crt:before{content:"";position:absolute;z-index:5;inset:0;pointer-events:none;background:linear-gradient(128deg,#fff2,transparent 24% 68%,#a577ff0b)}.crt:after{content:"";position:absolute;z-index:6;inset:0;pointer-events:none;opacity:.22;background:repeating-linear-gradient(0deg,transparent 0 3px,#0007 4px)}
+.crt-ui{min-height:506px;position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;padding:22px clamp(15px,4vw,32px) 18px}.hud-top,.hud-bottom{display:flex;align-items:center;justify-content:space-between;gap:12px}.hud-title{color:#e9d8ff;font-size:14px;letter-spacing:.18em}.hud-status{margin-top:7px;color:var(--cyan);font-size:10px;letter-spacing:.1em}.senicx-hud{min-width:94px;padding:8px 12px;text-align:center;border:1px solid #b68aea66;border-radius:6px;background:#090710aa;box-shadow:inset 0 0 12px #a353ff22}.senicx-label{color:#cbb3df;font-size:9px;letter-spacing:.25em}.senicx-value{margin-top:3px;color:#fff0a1;font-family:Tickerbit Mono,monospace;font-size:25px;text-shadow:0 0 10px #ffcf5e77}
+.crt-card-stage{flex:1;min-height:305px;display:grid;place-items:center;perspective:1100px;padding:20px 0}.card{position:relative;width:min(270px,72vw);height:300px;transform-style:preserve-3d;transition:transform .75s cubic-bezier(.2,.75,.25,1);cursor:pointer}.card.flipped{transform:rotateY(180deg)}.card-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:22px;border:2px solid #dfc2ff;border-radius:12px;backface-visibility:hidden;text-align:center;box-shadow:0 0 0 5px #311e40,0 12px 30px #000a,inset 0 0 28px #b083d722}.card-front{background:radial-gradient(circle at 50% 25%,#4a2e60,#191020 76%)}.card-back{transform:rotateY(180deg);background:radial-gradient(circle at 50% 25%,#392544,#110d17 78%)}.card-front-inner{display:grid;gap:24px}.card-number,.card-info-number{color:#cbb2e2;font-size:10px;letter-spacing:.2em}.card-title{color:#fff0c1;font-family:Tickerbit Mono,"Courier New",monospace;font-size:clamp(23px,5vw,34px);line-height:1.2;text-shadow:0 0 14px #c17dff88}.card-story{margin-top:20px;color:#eadff0;font-size:14px;line-height:1.65}.hud-bottom{border-top:1px solid #c9a8dc3b;padding-top:13px}.card-info-title{margin-top:5px;color:#fff0c1;font-size:12px;letter-spacing:.12em}.collection-display{color:#baa9c8;font-size:9px;letter-spacing:.15em;text-align:right}.collection-number{margin-top:5px;color:var(--cyan);font-size:12px}
+.control-panel{position:relative;margin:18px -22px -26px;padding:22px 24px 18px;border-top:5px solid #17121c;border-radius:0 0 10px 10px;background:linear-gradient(180deg,#62536a,#403448 24%,#2a2231);box-shadow:inset 0 3px #b9a4c044,inset 0 -12px 18px #100b14,0 8px 12px #0006}.controls{min-height:112px;display:flex;align-items:center;justify-content:space-around;gap:18px}.joystick{position:relative;width:68px;height:68px;flex:none;border:7px solid #211a26;border-radius:50%;background:radial-gradient(circle at 40% 35%,#8d7a96,#342a3b 65%,#17121c);box-shadow:inset 0 3px 7px #000a,0 4px #17121b}.joystick:before{content:"";position:absolute;width:12px;height:33px;left:21px;top:-29px;border-radius:7px;background:linear-gradient(90deg,#8f7c98,#e2d2e9 45%,#75647e);box-shadow:0 3px 5px #0009}.joystick:after{content:"";position:absolute;width:29px;height:29px;left:13px;top:-46px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#ffb1de,#db3f99 45%,#772257);box-shadow:0 4px 8px #000a,0 0 12px #ee64c255}
+.draw-button{min-width:150px;padding:16px 28px;border:4px solid #4d182f;border-radius:12px;color:#fff4df;font:700 22px Tickerbit Mono,"Courier New",monospace;letter-spacing:.2em;background:linear-gradient(#ff9b69,#e54f62 48%,#a92250);box-shadow:inset 0 3px #ffd2b788,inset 0 -6px #741b3e,0 7px #171019,0 10px 12px #0008;cursor:pointer;transition:transform .08s,filter .15s}.draw-button:hover{filter:brightness(1.15)}.draw-button:active{transform:translateY(5px);box-shadow:inset 0 3px #ffd2b755,inset 0 -3px #741b3e,0 2px #171019}.token-slot{display:flex;flex-direction:column;align-items:center;gap:9px}.slot-hole{width:57px;height:10px;border:2px solid #75687c;border-radius:8px;background:#09070c;box-shadow:inset 0 2px 4px #000,0 1px #c5b1ce44}.slot-label{color:#d9c6e2;font-size:8px;letter-spacing:.18em}.reset-button{display:block;margin:7px auto 0;padding:7px 12px;border:1px solid #bdaac766;border-radius:4px;color:#bcaec5;font:10px "Courier New",monospace;letter-spacing:.14em;background:#17121d;cursor:pointer}.reset-button:hover{color:white;border-color:#e5caff}button:focus-visible,.card:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
+@media(max-width:600px){body{padding:14px 7px}.machine{padding:11px 11px 19px;border-radius:19px 19px 11px 11px}.machine-top{min-height:82px}.machine-brand{gap:8px;letter-spacing:.04em}.machine-brand img{width:31px;height:31px}.machine-floor{font-size:9px}.crt-frame{padding:9px;border-width:5px;border-radius:22px}.crt{min-height:480px;border-width:5px;border-radius:16px}.crt-ui{min-height:470px;padding:14px 11px 12px}.hud-title{font-size:11px}.hud-status{max-width:180px;font-size:8px}.senicx-hud{min-width:75px;padding:6px 8px}.senicx-value{font-size:21px}.crt-card-stage{min-height:300px}.card{height:270px}.card-story{font-size:12px}.control-panel{margin:13px -11px -19px;padding:23px 10px 15px}.controls{gap:8px;min-height:95px}.joystick{transform:scale(.8);margin:0 -5px}.draw-button{min-width:108px;padding:14px 10px;font-size:17px}.slot-hole{width:43px}.slot-label{font-size:7px;letter-spacing:.08em}}
+@media(max-height:760px) and (min-width:601px){body{align-items:start}.crt{min-height:430px}.crt-ui{min-height:416px}.crt-card-stage{min-height:245px}.card{height:245px}}
+</style>
+</head>
 
-body {
-  min-height: 100vh;
 
-  font-family: "Courier New", monospace;
-  color: #eeeaff;
+<body>
 
-  background: #0a0619;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<div class="machine">
 
-  padding: 40px 20px;
 
-  position: relative;
+  <!-- MACHINE TOP -->
 
-  overflow-x: hidden;
-}
+  <div class="machine-top">
 
-/* =====================================================
-   ENVIRONMENT
-===================================================== */
+<div class="machine-brand">
+  <img src="images/LOGO.png">
+  <span class="brand-hotel">HOTEL ABBISSENICX</span>
+</div>
 
-body::before {
-  content: "";
+    <div class="machine-floor">
+      FLOOR 2 · CASINO
+    </div>
 
-  position: fixed;
-  inset: 0;
+  </div>
 
-  z-index: -2;
 
-  background:
-    linear-gradient(
-      rgba(10, 6, 25, .42),
-      rgba(10, 6, 25, .58)
-    ),
-    url("images/background.webp");
+  <!-- CRT FRAME -->
 
-  background-size: cover;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
+  <div class="crt-frame">
 
+    <div class="crt">
 
-/* =====================================================
-   MACHINE
-===================================================== */
 
-.machine {
-  width: min(820px, 96vw);
+      <!-- CRT UI -->
 
-  position: relative;
+      <div class="crt-ui">
 
-  /*
-    The extra bottom space is intentional.
-    This creates the lower cabinet beneath
-    the control deck.
-  */
-  padding: 18px 22px 155px;
 
-  border-radius: 28px 28px 15px 15px;
+        <!-- TOP HUD -->
 
-  background:
-    linear-gradient(
-      90deg,
-      #4e4b54 0%,
-      #79767f 5%,
-      #aaa8b0 15%,
-      #89868f 40%,
-      #a7a4ac 65%,
-      #77747d 94%,
-      #4d4a52 100%
-    );
+        <div class="hud-top">
 
-  border: 3px solid #403d45;
+          <div>
 
-  outline:
-    1px solid rgba(255,255,255,.10);
+            <div class="hud-title">
+              THE PLAYGROUND
+            </div>
 
-  outline-offset: -7px;
+            <div
+              class="hud-status"
+              id="status"
+            >
+              INSERT SENICX TO BEGIN
+            </div>
 
-  box-shadow:
+          </div>
 
-    /* machine against floor */
-    0 45px 80px rgba(0,0,0,.72),
-    0 18px 30px rgba(0,0,0,.48),
 
-    /* top metal edge */
-    inset 0 2px 0 rgba(255,255,255,.55),
+          <!-- SENICX -->
 
-    /* side walls */
-    inset 5px 0 13px rgba(0,0,0,.18),
-    inset -5px 0 13px rgba(0,0,0,.22),
+          <div class="senicx-hud">
 
-    /* lower body */
-    inset 0 -22px 30px rgba(0,0,0,.30);
+            <div class="senicx-label">
+              SENICX
+            </div>
 
-  isolation: isolate;
-}
+            <div
+              class="senicx-value"
+              id="tokenCount"
+            >
+              07
+            </div>
 
+          </div>
 
-/* =====================================================
-   LOWER CABINET
-===================================================== */
+        </div>
 
-.machine::after {
-  content: "";
 
-  position: absolute;
+        <!-- CARD -->
 
-  left: 0;
-  right: 0;
-  bottom: 0;
+        <div class="crt-card-stage">
 
-  height: 155px;
+          <div
+            class="card"
+            id="card"
+          >
 
-  z-index: 0;
+            <!-- FRONT -->
 
-  border-radius: 0 0 12px 12px;
+            <div class="card-face card-front">
 
-  background:
-    linear-gradient(
-      90deg,
-      #3c3941 0%,
-      #5a5760 8%,
-      #77747d 22%,
-      #66636c 50%,
-      #77747d 78%,
-      #57545d 92%,
-      #39363e 100%
-    );
+              <div class="card-front-inner">
 
-  border-top:
-    3px solid #343139;
+                <div
+                  class="card-number"
+                  id="cardFrontNumber"
+                >
+                  CARD 000
+                </div>
 
-  box-shadow:
+                <div
+                  class="card-title"
+                  id="cardFrontTitle"
+                >
+                  DRAW A CARD
+                </div>
 
-    inset 0 5px 0 rgba(255,255,255,.10),
+              </div>
 
-    inset 0 18px 22px rgba(0,0,0,.25),
+            </div>
 
-    inset 6px 0 12px rgba(0,0,0,.28),
 
-    inset -6px 0 12px rgba(0,0,0,.28),
+            <!-- BACK -->
 
-    inset 0 -18px 25px rgba(0,0,0,.38),
+            <div class="card-face card-back">
 
-    0 10px 18px rgba(0,0,0,.35);
-}
+              <div
+                class="card-number"
+                id="cardBackNumber"
+              >
+                CARD 000
+              </div>
 
+              <div
+                class="card-story"
+                id="cardStory"
+              >
+                The machine waits for a guest.
+              </div>
 
-/* keep the actual machine contents
-   above the lower cabinet */
+            </div>
 
-.machine > * {
-  position: relative;
-  z-index: 2;
-}
+          </div>
 
+        </div>
 
-/* =====================================================
-   MACHINE SCREWS
-===================================================== */
 
-.machine::before {
-  content: "";
+        <!-- BOTTOM HUD -->
 
-  position: absolute;
+        <div class="hud-bottom">
 
-  width: 9px;
-  height: 9px;
+          <div class="card-info">
 
-  top: 14px;
-  left: 18px;
+            <div
+              class="card-info-number"
+              id="cardNumber"
+            >
+              CARD 000
+            </div>
 
-  z-index: 20;
+            <div
+              class="card-info-title"
+              id="cardTitle"
+            >
+              AWAITING GUEST
+            </div>
 
-  border-radius: 50%;
+          </div>
 
-  background:
-    radial-gradient(
-      circle at 35% 30%,
-      #f2f2f2 0%,
-      #a8a6aa 35%,
-      #68656d 68%,
-      #35323a 100%
-    );
 
-  box-shadow:
+          <div class="collection-display">
 
-    inset 0 1px 2px rgba(255,255,255,.75),
+            <div>
+              COLLECTION
+            </div>
 
-    0 1px 2px rgba(0,0,0,.55),
+            <div
+              class="collection-number"
+              id="collectionCount"
+            >
+              00 / 77
+            </div>
 
-    /* other cabinet screws */
-    0 0 0 0 transparent,
+          </div>
 
-    0 0 0 0 transparent;
-}
+        </div>
 
 
-/* =====================================================
-   TOP HOOD
-===================================================== */
+      </div>
 
-.machine-top {
-  position: relative;
+    </div>
 
-  min-height: 145px;
+  </div>
 
-  padding: 24px 28px 27px;
 
-  display: flex;
-  flex-direction: column;
+  <!-- CONTROL PANEL -->
 
-  align-items: center;
-  justify-content: center;
+  <div class="control-panel">
 
-  gap: 8px;
+    <div class="controls">
 
-  /*
-    The top is now treated as a physical
-    machine hood rather than a webpage header.
-  */
+      <div class="joystick"></div>
 
-  background:
-    linear-gradient(
-      180deg,
-      #b9b7bd 0%,
-      #a09da5 45%,
-      #88858e 100%
-    );
+     <button
+  class="draw-button"
+  id="drawButton"
+>
+  <span>DRAW</span>
+</button>
 
-  border-radius: 18px 18px 4px 4px;
+      <div class="token-slot">
 
-  border:
-    2px solid #6b6870;
+        <div class="slot-hole"></div>
 
-  box-shadow:
+        <div class="slot-label">
+          SENICX SLOT
+        </div>
 
-    inset 0 2px 0 rgba(255,255,255,.55),
+      </div>
 
-    inset 0 -3px 0 rgba(0,0,0,.22),
+    </div>
 
-    inset 0 -12px 18px rgba(0,0,0,.12),
 
-    0 3px 5px rgba(0,0,0,.25);
-}
+    <button
+      class="reset-button"
+      id="resetButton"
+    >
+      RESET GAME
+    </button>
 
+  </div>
 
-/* inner hood panel */
 
-.machine-top::before {
-  content: "";
+</div>
 
-  position: absolute;
 
-  inset: 8px;
 
-  border-radius: 12px 12px 2px 2px;
-
-  border:
-    1px solid rgba(255,255,255,.18);
-
-  box-shadow:
-    inset 0 -3px 5px rgba(0,0,0,.15);
-
-  pointer-events: none;
-}
-
-
-/* lower mechanical seam */
-
-.machine-top::after {
-  content: "";
-
-  position: absolute;
-
-  left: 4%;
-  right: 4%;
-
-  bottom: -4px;
-
-  height: 5px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #66636b,
-      #29272e
-    );
-
-  border-radius: 0 0 3px 3px;
-
-  box-shadow:
-    0 2px 3px rgba(0,0,0,.35);
-
-  pointer-events: none;
-}
+<script>
 
 
 /* =====================================================
-   BRAND PLATE
+   CARD DATABASE
 ===================================================== */
 
-.machine-brand {
-  position: relative;
+const cards = [
 
-  display: flex;
+  {
+    number: "001",
+    title: "THE FOOL",
+    story:
+      "Every guest enters the hotel believing they are still going somewhere."
+  },
 
-  align-items: center;
-  justify-content: center;
+  {
+    number: "002",
+    title: "THE WANDERER",
+    story:
+      "The corridor was longer than yesterday. Nobody remembered building another floor."
+  },
 
-  gap: 14px;
+  {
+    number: "003",
+    title: "THE VOID",
+    story:
+      "Some rooms contain nothing. Some rooms contain the reason you came."
+  },
 
-  width: fit-content;
-  max-width: 90%;
+  {
+    number: "004",
+    title: "THE HOTEL",
+    story:
+      "Check-in is complimentary. Check-out is a matter of interpretation."
+  },
 
-  padding: 7px 15px;
+  {
+    number: "005",
+    title: "THE PLAYGROUND",
+    story:
+      "The house has prepared a game for every guest. The house never loses."
+  },
 
-  /*
-    This is now a physical nameplate.
-  */
+  {
+    number: "006",
+    title: "THE AFTERLIGHT",
+    story:
+      "When the lights finally disappear, something remains illuminated."
+  }
 
-  background:
-    linear-gradient(
-      180deg,
-      #c3c1c6 0%,
-      #a3a0a8 45%,
-      #8b8891 100%
-    );
-
-  border:
-    1px solid #74717a;
-
-  border-radius: 4px;
-
-  box-shadow:
-
-    inset 0 1px 0 rgba(255,255,255,.55),
-
-    inset 0 -2px 3px rgba(0,0,0,.20),
-
-    0 2px 3px rgba(0,0,0,.28);
-}
-
-
-.machine-brand img {
-  display: block;
-
-  width: 45px;
-  height: 45px;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(
-      0 1px 1px rgba(0,0,0,.45)
-    );
-}
+];
 
 
-.brand-hotel {
-  font-family: "Courier New", monospace;
-
-  font-size: 20px;
-
-  font-weight: bold;
-
-  letter-spacing: .10em;
-
-  color: #3c3941;
-
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.65),
-    0 -1px 1px rgba(0,0,0,.16);
-
-  white-space: nowrap;
-}
+/* =====================================================
+   GAME STATE
+===================================================== */
 
 
-.machine-floor {
-  margin: 0;
+/*
+   V5.4 FIX:
+   A brand-new visitor receives 07 SENICX.
+*/
 
-  font-family: "Courier New", monospace;
+const savedTokens =
+  localStorage.getItem("senicxTokens");
 
-  font-size: 10px;
+let tokens =
+  savedTokens === null
+    ? 7
+    : Number(savedTokens);
 
-  letter-spacing: .38em;
 
-  color: #4c4851;
+let collection =
+  JSON.parse(
+    localStorage.getItem(
+      "abbissenicxCollection"
+    ) || "[]"
+  );
 
-  text-align: center;
 
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.38),
-    0 -1px 0 rgba(0,0,0,.18);
+/* =====================================================
+   ELEMENTS
+===================================================== */
 
-  opacity: .95;
+const drawButton =
+  document.getElementById("drawButton");
+
+const resetButton =
+  document.getElementById("resetButton");
+
+const card =
+  document.getElementById("card");
+
+const tokenCount =
+  document.getElementById("tokenCount");
+
+const collectionCount =
+  document.getElementById("collectionCount");
+
+const status =
+  document.getElementById("status");
+
+const cardNumber =
+  document.getElementById("cardNumber");
+
+const cardTitle =
+  document.getElementById("cardTitle");
+
+const cardFrontNumber =
+  document.getElementById("cardFrontNumber");
+
+const cardFrontTitle =
+  document.getElementById("cardFrontTitle");
+
+const cardBackNumber =
+  document.getElementById("cardBackNumber");
+
+const cardStory =
+  document.getElementById("cardStory");
+
+
+/* =====================================================
+   DISPLAY UPDATE
+===================================================== */
+
+function updateDisplay() {
+
+  tokenCount.textContent =
+    String(tokens).padStart(2, "0");
+
+  collectionCount.textContent =
+    String(collection.length).padStart(2, "0")
+    + " / 77";
 }
 
 
 /* =====================================================
-   CRT HOUSING
+   DRAW CARD
 ===================================================== */
 
-.crt-frame {
-  position: relative;
+drawButton.addEventListener(
+  "click",
+  () => {
 
-  margin-top: 7px;
+    if (tokens <= 0) {
 
-  padding: 27px;
+      status.textContent =
+        "SENICX EMPTY // MACHINE LOCKED";
 
-  border-radius: 38px 38px 30px 30px;
+      return;
+    }
 
-  /*
-    This is deliberately much darker than
-    the outer machine.
 
-    It is the cavity around the CRT.
-  */
+    /* spend SENICX */
 
-  background:
-    linear-gradient(
-      145deg,
-      #5d5963 0%,
-      #3e3b44 18%,
-      #28252d 42%,
-      #18161c 70%,
-      #34313a 100%
+    tokens--;
+
+    localStorage.setItem(
+      "senicxTokens",
+      tokens
     );
 
-  border:
-    4px solid #35323a;
-
-  box-shadow:
-
-    /* outer mounting lip */
-    0 5px 0 #242128,
-
-    0 10px 17px rgba(0,0,0,.48),
-
-    /* upper bevel */
-    inset 0 3px 0 rgba(255,255,255,.16),
-
-    /* cavity depth */
-    inset 0 12px 18px rgba(0,0,0,.48),
-
-    inset 0 -20px 28px rgba(0,0,0,.80),
-
-    /* side walls */
-    inset 8px 0 14px rgba(0,0,0,.32),
-
-    inset -8px 0 14px rgba(0,0,0,.32);
-}
+    updateDisplay();
 
 
-/* inner mounting lip */
+    /* return card to front */
 
-.crt-frame::before {
-  content: "";
+    card.classList.remove("flipped");
 
-  position: absolute;
 
-  inset: 9px;
+    status.textContent =
+      "SENICX ACCEPTED";
 
-  border-radius: 31px 31px 23px 23px;
 
-  pointer-events: none;
+    setTimeout(
+      () => {
 
-  border:
-    2px solid rgba(0,0,0,.52);
+        status.textContent =
+          "SEARCHING CARD DATABASE...";
 
-  box-shadow:
+      },
+      450
+    );
 
-    inset 0 2px 0 rgba(255,255,255,.08),
 
-    inset 0 -5px 10px rgba(0,0,0,.72);
-}
+    setTimeout(
+      () => {
+
+        status.textContent =
+          "LOCATING GUEST RECORD...";
+
+      },
+      900
+    );
+
+
+    setTimeout(
+      () => {
+
+
+        /* random card */
+
+        const selected =
+          cards[
+            Math.floor(
+              Math.random() *
+              cards.length
+            )
+          ];
+
+
+        /* update card */
+
+        cardFrontNumber.textContent =
+          "CARD " + selected.number;
+
+        cardFrontTitle.textContent =
+          selected.title;
+
+        cardBackNumber.textContent =
+          "CARD " + selected.number;
+
+        cardStory.textContent =
+          selected.story;
+
+
+        cardNumber.textContent =
+          "CARD " + selected.number;
+
+        cardTitle.textContent =
+          selected.title;
+
+
+        /* new or duplicate */
+
+        if (
+          !collection.includes(
+            selected.number
+          )
+        ) {
+
+
+          collection.push(
+            selected.number
+          );
+
+
+          localStorage.setItem(
+            "abbissenicxCollection",
+            JSON.stringify(collection)
+          );
+
+
+          status.textContent =
+            "CARD FOUND // NEW ENTRY";
+
+
+        } else {
+
+
+          tokens++;
+
+
+          localStorage.setItem(
+            "senicxTokens",
+            tokens
+          );
+
+
+          status.textContent =
+            "DUPLICATE // SENICX RETURNED";
+
+        }
+
+
+        updateDisplay();
+
+
+      },
+      1350
+    );
+
+  }
+);
 
 
 /* =====================================================
-   CRT GLASS
+   CARD FLIP
 ===================================================== */
 
-.crt {
-  position: relative;
+card.addEventListener(
+  "click",
+  () => {
 
-  font-family: "Tickerbit Mono", monospace;
+    if (
+      cardNumber.textContent ===
+      "CARD 000"
+    ) {
 
-  width: 100%;
+      return;
+    }
 
-  height: 700px;
 
-  overflow: hidden;
-
-  border-radius: 45px / 34px;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 45%,
-      #211536 0%,
-      #100b19 45%,
-      #07050a 75%,
-      #020204 100%
+    card.classList.toggle(
+      "flipped"
     );
 
-  border:
-    10px solid #0c0b10;
-
-  box-shadow:
-
-    /* glass lip */
-    inset 0 2px 0 rgba(255,255,255,.045),
-
-    inset 0 -10px 15px rgba(0,0,0,.92),
-
-    /* glass depth */
-    inset 0 0 0 2px #050408,
-
-    inset 0 0 25px rgba(0,0,0,.95),
-
-    inset 0 0 65px rgba(0,0,0,.90),
-
-    inset 0 0 120px rgba(30,10,55,.75),
-
-    /* tiny external glow */
-    0 0 18px rgba(80,22,220,.10);
-}
-
-
-/* =====================================================
-   CRT GLASS REFLECTION
-===================================================== */
-
-.crt::before {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: 30;
-
-  border-radius: inherit;
-
-  background:
-
-    linear-gradient(
-      125deg,
-      rgba(255,255,255,.12) 0%,
-      rgba(255,255,255,.035) 17%,
-      transparent 35%
-    ),
-
-    radial-gradient(
-      ellipse at center,
-      transparent 55%,
-      rgba(0,0,0,.15) 75%,
-      rgba(0,0,0,.65) 100%
-    );
-}
-
-
-/* =====================================================
-   CRT SCANLINES
-===================================================== */
-
-.crt::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
-
-  pointer-events: none;
-
-  z-index: 40;
-
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(255,255,255,.028) 0px,
-      rgba(255,255,255,.028) 1px,
-      rgba(0,0,0,.055) 2px,
-      rgba(0,0,0,.055) 4px
-    );
-
-  mix-blend-mode: screen;
-
-  opacity: .65;
-}
-
-
-/* =====================================================
-   CRT UI
-===================================================== */
-
-.crt-ui {
-  position: absolute;
-
-  inset: 0;
-
-  z-index: 10;
-
-  display: flex;
-
-  flex-direction: column;
-
-  padding: 30px 30px 32px;
-}
-
-
-/* =====================================================
-   TOP HUD
-===================================================== */
-
-.hud-top {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: flex-start;
-
-  gap: 20px;
-
-  flex-shrink: 0;
-}
-
-
-.hud-title {
-  font-size: 13px;
-
-  letter-spacing: .24em;
-
-  color: #cfc6ff;
-
-  text-shadow:
-    0 0 7px rgba(100,70,255,.7);
-}
-
-
-.hud-status {
-  margin-top: 7px;
-
-  font-size: 9px;
-
-  letter-spacing: .18em;
-
-  color: #8f879f;
-
-  min-height: 13px;
-}
-
-
-/* =====================================================
-   SENICX DISPLAY
-===================================================== */
-
-.senicx-hud {
-  position: relative;
-
-  min-width: 205px;
-
-  padding: 9px 14px 11px;
-
-  border:
-    2px solid #676172;
-
-  border-radius: 5px;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(8,7,12,.96),
-      rgba(22,18,31,.97)
-    );
-
-  box-shadow:
-
-    inset 0 0 14px rgba(0,0,0,.95),
-
-    inset 0 1px 0 rgba(255,255,255,.08),
-
-    0 0 10px rgba(80,22,220,.12);
-}
-
-
-.senicx-hud::after {
-  content: "";
-
-  position: absolute;
-
-  inset: 4px;
-
-  pointer-events: none;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(255,255,255,.06),
-      transparent 35%
-    );
-}
-
-
-.senicx-label {
-  font-size: 8px;
-
-  letter-spacing: .28em;
-
-  color: #88818f;
-
-  text-align: center;
-}
-
-
-.senicx-value {
-  margin-top: 2px;
-
-  text-align: center;
-
-  font-family: "Courier New", monospace;
-
-  font-size: clamp(28px, 5vw, 43px);
-
-  line-height: 1;
-
-  font-weight: bold;
-
-  letter-spacing: .08em;
-
-  color: #f1eaff;
-
-  text-shadow:
-
-    0 0 4px #fff,
-
-    0 0 12px rgba(80,22,220,.8),
-
-    0 0 25px rgba(80,22,220,.45);
-}
-
-
-/* =====================================================
-   CARD STAGE
-===================================================== */
-
-.crt-card-stage {
-  flex: 1;
-
-  min-height: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 5px 0;
-
-  position: relative;
-}
-
-
-.crt-card-stage::before {
-  content: "";
-
-  position: absolute;
-
-  inset: -8% -10%;
-
-  background:
-    url("images/inner-background.webp")
-    center
-    center
-    / cover
-    no-repeat;
-
-  pointer-events: none;
-
-  opacity: .35;
-
-  z-index: 0;
-}
-
-
-.crt-card-stage::after {
-  content: "";
-
-  position: absolute;
-
-  width: 55%;
-
-  height: 20%;
-
-  bottom: 9%;
-
-  left: 22.5%;
-
-  pointer-events: none;
-
-  background:
-    radial-gradient(
-      ellipse,
-      rgba(80,22,220,.16),
-      transparent 70%
-    );
-
-  filter: blur(14px);
-
-  z-index: 1;
-}
-
-
-/* =====================================================
-   CARD
-===================================================== */
-
-.card {
-  position: relative;
-
-  height: min(530px, 78%);
-
-  aspect-ratio: 2156 / 3740;
-
-  cursor: pointer;
-
-  transform-style: preserve-3d;
-
-  transition:
-    transform .75s cubic-bezier(.2,.7,.2,1),
-    filter .3s ease;
-
-  filter:
-    drop-shadow(0 14px 20px rgba(0,0,0,.8))
-    drop-shadow(0 0 10px rgba(100,60,255,.18))
-    drop-shadow(0 0 28px rgba(70,20,180,.10));
-
-  z-index: 2;
-}
-
-
-.card:hover {
-  filter:
-    drop-shadow(0 20px 28px rgba(0,0,0,.8))
-    drop-shadow(0 0 25px rgba(80,22,220,.3));
-}
-
-
-.card.flipped {
-  transform: rotateY(180deg);
-}
-
-
-/* =====================================================
-   CARD FACES
-===================================================== */
-
-.card-face {
-  position: absolute;
-
-  inset: 0;
-
-  backface-visibility: hidden;
-
-  border-radius: 8px;
-
-  overflow: hidden;
-
-  border:
-    2px solid rgba(230,225,255,.5);
-
-  background:
-    linear-gradient(
-      145deg,
-      #15111d,
-      #08060c
-    );
-
-  box-shadow:
-
-    inset 0 0 20px rgba(0,0,0,.75),
-
-    inset 0 0 45px rgba(40,10,70,.25),
-
-    0 0 0 1px rgba(0,0,0,.7),
-
-    0 0 12px rgba(120,80,255,.10);
-}
-
-
-/* =====================================================
-   CARD FRONT
-===================================================== */
-
-.card-front {
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  padding: 25px;
-
-  text-align: center;
-}
-
-
-.card-front-inner {
-  font-size: clamp(15px, 2vw, 22px);
-
-  line-height: 1.4;
-
-  letter-spacing: .18em;
-
-  color: #eeeaff;
-
-  text-shadow:
-    0 0 10px rgba(80,22,220,.6);
-}
-
-
-.card-number {
-  font-size: 10px;
-
-  color: #8f879f;
-
-  letter-spacing: .3em;
-
-  margin-bottom: 12px;
-}
-
-
-.card-title {
-  font-size: clamp(20px, 3vw, 32px);
-
-  font-weight: bold;
-
-  letter-spacing: .08em;
-}
-
-
-/* =====================================================
-   CARD BACK
-===================================================== */
-
-.card-back {
-  transform: rotateY(180deg);
-
-  padding: 25px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center;
-
-  text-align: left;
-}
-
-
-.card-back .card-number {
-  margin-bottom: 15px;
-}
-
-
-.card-story {
-  font-family: Georgia, serif;
-
-  font-size: clamp(12px, 1.5vw, 15px);
-
-  line-height: 1.65;
-
-  color: #d9d2e8;
-}
-
-
-/* =====================================================
-   BOTTOM HUD
-===================================================== */
-
-.hud-bottom {
-  display: flex;
-
-  justify-content: space-between;
-
-  align-items: flex-end;
-
-  gap: 20px;
-
-  flex-shrink: 0;
-}
-
-
-.card-info {
-  min-width: 0;
-}
-
-
-.card-info-number {
-  font-size: 10px;
-
-  letter-spacing: .25em;
-
-  color: #817989;
-}
-
-
-.card-info-title {
-  margin-top: 4px;
-
-  font-size: 15px;
-
-  letter-spacing: .12em;
-
-  color: #eeeaff;
-
-  white-space: nowrap;
-
-  overflow: hidden;
-
-  text-overflow: ellipsis;
-}
-
-
-.collection-display {
-  text-align: right;
-
-  font-size: 9px;
-
-  line-height: 1.5;
-
-  letter-spacing: .18em;
-
-  color: #898291;
-}
-
-
-.collection-number {
-  font-size: 17px;
-
-  color: #e8e2ff;
-
-  text-shadow:
-    0 0 8px rgba(80,22,220,.6);
-}
-
-
-/* =====================================================
-   CONTROL DECK
-===================================================== */
-
-.control-panel {
-  position: relative;
-
-  margin:
-    0 -22px;
-
-  padding:
-    24px 35px 31px;
-
-  /*
-    The deck deliberately extends
-    beyond the CRT housing.
-  */
-
-  border-radius:
-    5px 5px 11px 11px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #99969e 0%,
-      #7b7881 18%,
-      #625f68 55%,
-      #48454d 100%
-    );
-
-  border-top:
-    4px solid #3d3a42;
-
-  box-shadow:
-
-    /* deck upper lip */
-    inset 0 3px 0 rgba(255,255,255,.20),
-
-    /* surface recess */
-    inset 0 8px 13px rgba(0,0,0,.25),
-
-    /* front thickness */
-    inset 0 -12px 20px rgba(0,0,0,.42),
-
-    /* separation from CRT */
-    0 -5px 9px rgba(0,0,0,.34),
-
-    /* physical drop */
-    0 8px 12px rgba(0,0,0,.40);
-
-  z-index: 5;
-}
-
-
-/* deck front edge */
-
-.control-panel::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-
-  bottom: -9px;
-
-  height: 11px;
-
-  border-radius:
-    0 0 8px 8px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #55525a,
-      #2b2930
-    );
-
-  box-shadow:
-
-    inset 0 -3px 5px rgba(0,0,0,.55),
-
-    0 5px 9px rgba(0,0,0,.42);
-
-  pointer-events: none;
-}
-
-
-/* =====================================================
-   CONTROL DECK SEAM
-===================================================== */
-
-.control-panel::before {
-  content: "";
-
-  position: absolute;
-
-  left: 7%;
-  right: 7%;
-
-  top: -2px;
-
-  height: 2px;
-
-  background:
-    linear-gradient(
-      90deg,
-      transparent,
-      rgba(255,255,255,.24) 20%,
-      rgba(255,255,255,.24) 80%,
-      transparent
-    );
-
-  box-shadow:
-    0 2px 4px rgba(0,0,0,.40);
-}
-
-
-/* =====================================================
-   CONTROLS
-===================================================== */
-
-.controls {
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  gap: 42px;
-}
-
-
-/* =====================================================
-   JOYSTICK
-===================================================== */
-
-.joystick {
-  position: relative;
-
-  width: 72px;
-  height: 66px;
-
-  transform: translateY(7px);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 50% 48%,
-      #69656f 0%,
-      #504c55 48%,
-      #343139 78%,
-      #29262e 100%
-    );
-
-  border:
-    4px solid #302d35;
-
-  box-shadow:
-
-    inset 0 3px 3px rgba(255,255,255,.14),
-
-    inset 0 -7px 10px rgba(0,0,0,.45),
-
-    0 4px 0 #252229,
-
-    0 7px 9px rgba(0,0,0,.35);
-}
-
-
-/* joystick stem */
-
-.joystick::before {
-  content: "";
-
-  position: absolute;
-
-  width: 10px;
-  height: 28px;
-
-  left: 50%;
-  top: 50%;
-
-  transform:
-    translate(-50%, -15%);
-
-  border-radius: 5px;
-
-  background:
-    linear-gradient(
-      90deg,
-      #29262e 0%,
-      #77727c 45%,
-      #3b3841 100%
-    );
-
-  box-shadow:
-    1px 2px 3px rgba(0,0,0,.55);
-
-  z-index: 2;
-}
-
-
-/* joystick ball */
-
-.joystick::after {
-  content: "";
-
-  position: absolute;
-
-  width: 32px;
-  height: 32px;
-
-  left: 50%;
-  top: 3px;
-
-  transform:
-    translateX(-50%);
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle at 35% 27%,
-      #aaa6ae 0%,
-      #77737c 28%,
-      #4c4851 62%,
-      #29262e 100%
-    );
-
-  border:
-    3px solid #302d35;
-
-  box-shadow:
-
-    inset 0 2px 2px rgba(255,255,255,.18),
-
-    inset 0 -4px 5px rgba(0,0,0,.5),
-
-    0 4px 5px rgba(0,0,0,.45);
-
-  z-index: 3;
-}
-
-
-/* =====================================================
-   DRAW BUTTON
-===================================================== */
-
-.draw-button {
-  position: relative;
-
-  width: 124px;
-  height: 62px;
-
-  padding: 0;
-
-  border:
-    4px solid #29262e;
-
-  border-radius: 7px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #8c8992 0%,
-      #625f68 45%,
-      #403d45 100%
-    );
-
-  color: #eeeaff;
-
-  font-family:
-    "Courier New",
-    monospace;
-
-  font-size: 13px;
-
-  font-weight: bold;
-
-  letter-spacing: .18em;
-
-  cursor: pointer;
-
-  text-shadow:
-    0 1px 2px rgba(0,0,0,.65);
-
-  box-shadow:
-
-    inset 0 2px 0 rgba(255,255,255,.22),
-
-    inset 0 -3px 5px rgba(0,0,0,.45),
-
-    0 5px 0 #25222a,
-
-    0 7px 10px rgba(0,0,0,.45);
-
-  transition:
-    transform .08s ease,
-    box-shadow .08s ease,
-    filter .15s ease;
-}
-
-
-/* purple inner button */
-
-.draw-button::before {
-  content: "";
-
-  position: absolute;
-
-  left: 7px;
-  right: 7px;
-
-  top: 7px;
-  bottom: 7px;
-
-  border-radius: 3px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #6730dc 0%,
-      #5016dc 48%,
-      #35108e 100%
-    );
-
-  box-shadow:
-
-    inset 0 2px 2px rgba(255,255,255,.20),
-
-    inset 0 -5px 8px rgba(0,0,0,.45),
-
-    0 0 8px rgba(80,22,220,.18);
-
-  pointer-events: none;
-
-  z-index: 0;
-}
-
-
-.draw-button span {
-  position: relative;
-
-  z-index: 1;
-}
-
-
-.draw-button:hover {
-  filter: brightness(1.08);
-}
-
-
-.draw-button:active {
-  transform: translateY(5px);
-
-  box-shadow:
-
-    inset 0 3px 6px rgba(0,0,0,.45),
-
-    0 1px 2px rgba(0,0,0,.45);
-}
-
-
-/* =====================================================
-   SENICX SLOT
-===================================================== */
-
-.token-slot {
-  position: relative;
-
-  width: 88px;
-
-  display: flex;
-
-  flex-direction: column;
-
-  align-items: center;
-}
-
-
-.slot-hole {
-  position: relative;
-
-  width: 88px;
-  height: 58px;
-
-  border-radius: 5px;
-
-  background:
-    linear-gradient(
-      145deg,
-      #77747d 0%,
-      #5b5861 38%,
-      #3c3941 100%
-    );
-
-  border:
-    4px solid #302d35;
-
-  box-shadow:
-
-    inset 0 2px 0 rgba(255,255,255,.16),
-
-    inset 0 -7px 10px rgba(0,0,0,.4),
-
-    0 4px 0 #252229,
-
-    0 7px 9px rgba(0,0,0,.35);
-}
-
-
-/* token opening */
-
-.slot-hole::after {
-  content: "";
-
-  position: absolute;
-
-  width: 62px;
-  height: 13px;
-
-  left: 50%;
-  top: 55%;
-
-  transform:
-    translate(-50%, -50%);
-
-  border-radius: 3px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #050408 0%,
-      #16131a 45%,
-      #050408 100%
-    );
-
-  border:
-    2px solid #242129;
-
-  box-shadow:
-
-    inset 0 2px 4px rgba(0,0,0,.95),
-
-    0 1px 0 rgba(255,255,255,.08);
-}
-
-
-.slot-label {
-  margin-top: 6px;
-
-  width: 100%;
-
-  text-align: center;
-
-  font-family:
-    "Courier New",
-    monospace;
-
-  font-size: 7px;
-
-  letter-spacing: .16em;
-
-  color: #514c57;
-
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.38),
-    0 -1px 0 rgba(0,0,0,.18);
-
-  opacity: .95;
-
-  pointer-events: none;
-}
+  }
+);
 
 
 /* =====================================================
    RESET
 ===================================================== */
 
-.reset-button {
-  display: block;
+resetButton.addEventListener(
+  "click",
+  () => {
 
-  margin: 18px auto 0;
+    tokens = 7;
 
-  border: none;
-
-  background: transparent;
-
-  color: #2e2a33;
-
-  font-family:
-    "Courier New",
-    monospace;
-
-  font-size: 8px;
-
-  letter-spacing: .2em;
-
-  cursor: pointer;
-
-  opacity: .65;
-}
+    collection = [];
 
 
-.reset-button:hover {
-  opacity: 1;
+    localStorage.setItem(
+      "senicxTokens",
+      tokens
+    );
 
-  color: #eeeaff;
-}
+
+    localStorage.setItem(
+      "abbissenicxCollection",
+      JSON.stringify(collection)
+    );
+
+
+    card.classList.remove(
+      "flipped"
+    );
+
+
+    cardFrontNumber.textContent =
+      "CARD 000";
+
+    cardFrontTitle.textContent =
+      "DRAW A CARD";
+
+    cardBackNumber.textContent =
+      "CARD 000";
+
+    cardStory.textContent =
+      "The machine waits for a guest.";
+
+
+    cardNumber.textContent =
+      "CARD 000";
+
+    cardTitle.textContent =
+      "AWAITING GUEST";
+
+
+    status.textContent =
+      "INSERT SENICX TO BEGIN";
+
+
+    updateDisplay();
+
+  }
+);
 
 
 /* =====================================================
-   MOBILE
+   INITIAL DISPLAY
 ===================================================== */
 
-@media (max-width: 600px) {
+updateDisplay();
 
-  body {
-    padding: 20px 10px;
-  }
+</script>
 
 
-  .machine {
-    width: min(96vw, 520px);
-
-    padding:
-      12px 14px 120px;
-
-    border-radius:
-      22px 22px 12px 12px;
-  }
-
-
-  .machine::after {
-    height: 120px;
-  }
-
-
-  .machine-top {
-    min-height: 110px;
-
-    padding:
-      18px 12px 21px;
-  }
-
-
-  .machine-brand {
-    gap: 9px;
-
-    padding:
-      5px 9px;
-  }
-
-
-  .machine-brand img {
-    width: 34px;
-    height: 34px;
-  }
-
-
-  .brand-hotel {
-    font-size: 13px;
-
-    letter-spacing: .07em;
-  }
-
-
-  .machine-floor {
-    font-size: 7px;
-
-    letter-spacing: .25em;
-  }
-
-
-  .crt-frame {
-    padding: 13px;
-
-    border-radius:
-      28px 28px 23px 23px;
-  }
-
-
-  .crt-frame::before {
-    inset: 6px;
-
-    border-radius:
-      23px 23px 19px 19px;
-  }
-
-
-  .crt {
-    height: 610px;
-
-    border-radius:
-      32px / 25px;
-
-    border-width: 7px;
-  }
-
-
-  .crt-ui {
-    padding:
-      18px 17px 20px;
-  }
-
-
-  .hud-top {
-    gap: 8px;
-  }
-
-
-  .hud-title {
-    font-size: 9px;
-  }
-
-
-  .hud-status {
-    font-size: 7px;
-  }
-
-
-  .senicx-hud {
-    min-width: 112px;
-
-    padding:
-      7px 8px 9px;
-  }
-
-
-  .senicx-label {
-    font-size: 6px;
-  }
-
-
-  .senicx-value {
-    font-size: 27px;
-  }
-
-
-  .crt-card-stage {
-    padding: 10px 0;
-  }
-
-
-  .card {
-    height:
-      min(390px, 65%);
-  }
-
-
-  .card-back {
-    padding: 17px;
-  }
-
-
-  .card-story {
-    font-size: 11px;
-
-    line-height: 1.5;
-  }
-
-
-  .card-info-title {
-    font-size: 11px;
-  }
-
-
-  .collection-display {
-    font-size: 7px;
-  }
-
-
-  .collection-number {
-    font-size: 13px;
-  }
-
-
-  .control-panel {
-    margin:
-      0 -14px;
-
-    padding:
-      18px 18px 23px;
-  }
-
-
-  .controls {
-    gap: 16px;
-  }
-
-
-  .joystick {
-    width: 48px;
-    height: 48px;
-  }
-
-
-  .draw-button {
-    width: 100px;
-    height: 54px;
-  }
-
-
-  .slot-hole {
-    width: 68px;
-    height: 52px;
-  }
-
-
-  .token-slot {
-    width: 68px;
-  }
-
-
-  .slot-label {
-    font-size: 6px;
-
-    letter-spacing: .10em;
-
-    margin-top: 5px;
-  }
-
-
-  .reset-button {
-    margin-top: 14px;
-
-    font-size: 7px;
-  }
-}
-
-
-/* =====================================================
-   SHORT DESKTOP SCREENS
-===================================================== */
-
-@media (max-height: 700px) and (min-width: 601px) {
-
-  .crt {
-    height: 570px;
-  }
-
-
-  .card {
-    height:
-      min(380px, 62%);
-  }
-}
+</body>
+</html>
