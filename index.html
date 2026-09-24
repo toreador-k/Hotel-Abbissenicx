@@ -64,18 +64,18 @@ body::before{
   border:5px solid #17121c;
   border-radius:25px 25px 14px 14px;
   background:
-     linear-gradient(
-    90deg,
-    #34394f,
-    #6e7394 8%,
-    #555b78 22%,
-    #626985 50%,
-    #555b78 78%,
-    #6e7394 92%,
-    #34394f
-  );
+    linear-gradient(
+      90deg,
+      #211a27,
+      #493b50 8%,
+      #34283d 22%,
+      #403449 50%,
+      #34283d 78%,
+      #493b50 92%,
+      #211a27
+    );
   box-shadow:
-    inset 0 2px #b9d8e655,
+    inset 0 2px #8c7594,
     inset 8px 0 14px #100c15,
     inset -8px 0 14px #100c15,
     0 28px 55px #000b;
@@ -85,7 +85,7 @@ body::before{
   content:"";
   position:absolute;
   inset:9px;
-  border:1px solid #b9d8e633;
+  border:1px solid #c9a8dc33;
   border-radius:17px;
   pointer-events:none;
 }
@@ -100,17 +100,17 @@ body::before{
   z-index:0;
   border-radius:0 0 12px 12px;
   background:
-   linear-gradient(
-    90deg,
-    #3d435a 0%,
-    #59617d 8%,
-    #6e7394 22%,
-    #626985 50%,
-    #6e7394 78%,
-    #59617d 92%,
-    #3a4056 100%
-  );
-  border-top:3px solid #3e455c;
+    linear-gradient(
+      90deg,
+      #3c3941 0%,
+      #5a5760 8%,
+      #77747d 22%,
+      #66636c 50%,
+      #77747d 78%,
+      #57545d 92%,
+      #39363e 100%
+    );
+  border-top:3px solid #343139;
   box-shadow:
     inset 0 5px 0 rgba(255,255,255,.10),
     inset 0 18px 22px rgba(0,0,0,.25),
@@ -140,18 +140,18 @@ body::before{
   text-align:center;
 
   background:
-  linear-gradient(
-    180deg,
-    #646a87 0%,
-    #50566f 45%,
-    #3d435a 100%
-  );
-  
-  border-top:1px solid #b9d8e655;
+    linear-gradient(
+      180deg,
+      #514456 0%,
+      #403447 45%,
+      #302638 100%
+    );
+
+  border-top:1px solid #b9a4c455;
   border-bottom:2px solid #17121c;
 
   box-shadow:
-    inset 0 2px 0 #b9d8e622,
+    inset 0 2px 0 #d8c5df22,
     inset 0 -8px 14px #130e18aa,
     0 3px 0 #0d0910;
 
@@ -248,8 +248,8 @@ body::before{
   background:
     linear-gradient(
       145deg,
-      #6e7394 0%,
-      #555b78 18%,
+      #5d5963 0%,
+      #3e3b44 18%,
       #28252d 42%,
       #18161c 70%,
       #34313a 100%
@@ -529,20 +529,13 @@ body::before{
   isolation:isolate;
   margin:18px -22px -26px;
   padding:22px 24px 18px;
-  border:1px solid #8e9ab6;
+  border:1px solid #81718a;
   border-top:0;
   border-radius:0 0 13px 13px;
   background:
-   linear-gradient(
-    180deg,
-    #6e7394 0%,
-    #59617d 8%,
-    #4a516b 32%,
-    #3b4259 78%,
-    #303548 100%
-  );
+    linear-gradient(180deg, #71617a 0%, #51445a 8%, #393041 32%, #29222f 78%, #211a27 100%);
   box-shadow:
-    inset 0 1px 0 #b9d8e666,
+    inset 0 1px 0 #e2d3ec66,
     inset 0 9px 13px #120d18aa,
     inset 0 -3px 0 #100b14,
     0 3px 0 #17111b,
@@ -558,14 +551,9 @@ body::before{
   left:12px;
   right:12px;
   height:5px;
-border-top:1px solid #b9d8e655;
-border-bottom:1px solid #171b25;
-background:
-  linear-gradient(
-    180deg,
-    #303548,
-    #555b78
-  );
+  border-top:1px solid #cbb8d466;
+  border-bottom:1px solid #100b14;
+  background:linear-gradient(180deg,#211a27,#403449);
   box-shadow:0 2px 5px #0008;
   pointer-events:none;
 }
@@ -580,15 +568,11 @@ background:
   bottom:-7px;
   height:8px;
   border:1px solid #51445b;
-  border-top:1px solid #8e9ab6;
+  border-top:1px solid #8a7894;
   border-radius:0 0 12px 12px;
-background:
-  linear-gradient(
-    180deg,
-    #4a5169,
-    #303548 72%,
-    #171b25
-  );
+  background:linear-gradient(180deg,#39303f,#201a26 72%,#120e15);
+  box-shadow:0 5px 8px #0008;
+  pointer-events:none;
 }
 
 .controls{
@@ -599,80 +583,59 @@ background:
   gap:18px;
 }
 
-/* =====================================================
-   JOYSTICK / RECESSED MOUNT
-===================================================== */
+/* DARKER, MATTE ARCADE JOYSTICK */
 
 .joystick{
   position:relative;
   width:68px;
   height:68px;
   flex:none;
-
   border:7px solid #17141b;
   border-radius:50%;
-
   background:
     radial-gradient(
-      circle,
-      #0c0a0f 0%,
-      #17131b 42%,
-      #302b35 58%,
-      #18141c 72%,
-      #0a080d 100%
+      circle at 38% 32%,
+      #56505d 0%,
+      #34303a 42%,
+      #1a171e 74%,
+      #0d0b10 100%
     );
-
   box-shadow:
-    inset 0 2px 3px rgba(255,255,255,.08),
-    inset 0 -8px 11px rgba(0,0,0,.75),
-
-    /* mechanical collar */
-    0 0 0 2px #0d0b10,
-    0 0 0 4px #3c3541,
-
-    0 4px 0 #09070b,
-    0 7px 9px rgba(0,0,0,.45);
+    inset 0 3px 6px rgba(255,255,255,.08),
+    inset 0 -7px 10px rgba(0,0,0,.65),
+    0 3px 0 #09070b,
+    0 6px 8px rgba(0,0,0,.45);
 }
 
 .joystick::before{
   content:"";
-
   position:absolute;
   width:11px;
   height:34px;
-
   left:21px;
   top:-29px;
-
   border-radius:4px;
-
   background:
     linear-gradient(
       90deg,
-      #242027 0%,
+      #242027,
       #756b7b 42%,
       #3a3440 72%,
-      #17141a 100%
+      #17141a
     );
-
   box-shadow:
     inset 1px 0 rgba(255,255,255,.16),
-    inset -2px 0 rgba(0,0,0,.35),
     0 3px 5px rgba(0,0,0,.7);
 }
 
 .joystick::after{
   content:"";
-
   position:absolute;
   width:30px;
   height:30px;
-
   left:12px;
   top:-46px;
-
   border-radius:50%;
-
   background:
     radial-gradient(
       circle at 34% 28%,
@@ -681,275 +644,89 @@ background:
       #242029 68%,
       #100e13 100%
     );
-
   border:1px solid #756b7d;
-
   box-shadow:
     inset 0 2px 2px rgba(255,255,255,.13),
     inset 0 -5px 7px rgba(0,0,0,.7),
     0 4px 8px rgba(0,0,0,.75);
 }
 
-/* =====================================================
-   DRAW / ILLUMINATED ARCADE DOME BUTTON
-===================================================== */
+/* DRAW — Soft-Octagon V6 illuminated arcade actuator */
 
 .draw-button{
   position:relative;
-  z-index:1;
-
-  width:156px;
-  height:58px;
-  padding:0;
-
-  border:1px solid #161922;
-  border-radius:30px;
-
-  color:#fff4df;
-  font:700 21px Tickerbit Mono,"Courier New",monospace;
+  isolation:isolate;
+  min-width:150px;
+  padding:16px 28px;
+  border:4px solid transparent;
+  border-radius:0;
+  clip-path:polygon(7% 0,93% 0,100% 22%,100% 78%,93% 100%,7% 100%,0 78%,0 22%);
+  color:#f4e9d5;
+  font:700 22px Tickerbit Mono,"Courier New",monospace;
   letter-spacing:.2em;
-
-  /* DARK MECHANICAL BASE */
-  background:
-    linear-gradient(
-      180deg,
-      #3c435a 0%,
-      #292f43 45%,
-      #1b202d 100%
-    );
-
+  background:linear-gradient(180deg,#3b4249,#252a30);
   box-shadow:
-    inset 0 2px 0 rgba(185,216,230,.14),
-    inset 0 -5px 8px rgba(0,0,0,.65),
-    0 4px 0 #11141d,
-    0 7px 9px rgba(0,0,0,.42);
-
+    inset 0 1px 0 rgba(185,216,230,.22),
+    inset 0 -2px 0 rgba(5,8,11,.52),
+    0 2px 0 #1b2025;
   cursor:pointer;
-
-  transition:
-    transform .08s ease,
-    filter .15s ease;
+  transition:transform .08s,filter .15s;
 }
-
-
-/* -----------------------------------------------------
-   METAL / PLASTIC MOUNTING RING
------------------------------------------------------ */
 
 .draw-button::before{
   content:"";
-
   position:absolute;
   z-index:-1;
-
-  left:-4px;
-  right:-4px;
-  top:-4px;
-  bottom:-4px;
-
-  border:1px solid #737b96;
-  border-radius:34px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #515a75 0%,
-      #353c53 48%,
-      #222838 100%
-    );
-
+  inset:4px;
+  clip-path:polygon(7% 0,93% 0,100% 23%,100% 77%,93% 100%,7% 100%,0 77%,0 23%);
+  background:linear-gradient(180deg,#57363d 0%,#462a32 48%,#38242b 100%);
   box-shadow:
-    inset 0 1px 0 rgba(185,216,230,.20),
-    inset 0 -4px 6px rgba(0,0,0,.55),
-    0 3px 0 #12151e;
-
+    inset 0 1px 0 rgba(185,216,230,.3),
+    inset 0 -2px 2px rgba(13,10,13,.55);
   pointer-events:none;
 }
-
-
-/* -----------------------------------------------------
-   ILLUMINATED DOME CAP
------------------------------------------------------ */
-
-.draw-button::after{
-  content:"";
-
-  position:absolute;
-
-  left:5px;
-  right:5px;
-  top:4px;
-  bottom:8px;
-
-  border-radius:25px;
-
-  background:
-    radial-gradient(
-      ellipse at 50% 22%,
-      #ffb18f 0%,
-      #f47d68 18%,
-      #dc4f60 52%,
-      #ad304e 82%,
-      #8c2745 100%
-    );
-
-  border:1px solid #ffad91;
-
-  box-shadow:
-
-    /* acrylic-like top reflection */
-    inset 0 3px 4px rgba(255,238,226,.42),
-
-    /* deep red underside */
-    inset 0 -7px 9px rgba(84,12,38,.58),
-
-    /* internal illumination */
-    inset 0 0 12px rgba(255,117,104,.28),
-
-    /* physical cap depth */
-    0 3px 0 #641c38,
-
-    0 4px 5px rgba(0,0,0,.38);
-
-  pointer-events:none;
-}
-
-
-/* -----------------------------------------------------
-   DRAW LABEL
------------------------------------------------------ */
 
 .draw-button span{
   position:relative;
-  z-index:2;
-
-  display:block;
-
-  transform:translateY(-1px);
-
-  color:#fff5df;
-
-  text-shadow:
-    0 1px 0 rgba(255,255,255,.22),
-    0 2px 3px rgba(79,12,29,.45);
+  z-index:1;
 }
-
-
-/* -----------------------------------------------------
-   HOVER
------------------------------------------------------ */
 
 .draw-button:hover{
   filter:brightness(1.06);
 }
 
-
-/* -----------------------------------------------------
-   PHYSICAL PRESS
------------------------------------------------------ */
-
 .draw-button:active{
-  transform:translateY(4px);
-
+  transform:translateY(3px);
   box-shadow:
-    inset 0 2px 2px rgba(185,216,230,.08),
-    inset 0 -4px 7px rgba(0,0,0,.72),
-    0 1px 0 #11141d,
-    0 3px 5px rgba(0,0,0,.38);
+    inset 0 1px 0 rgba(185,216,230,.17),
+    inset 0 -1px 0 rgba(5,8,11,.6),
+    0 1px 0 #1b2025;
 }
 
-.draw-button:active::after{
-  top:6px;
-  bottom:6px;
-
-  box-shadow:
-    inset 0 2px 4px rgba(255,238,226,.22),
-    inset 0 -5px 7px rgba(84,12,38,.68),
-    inset 0 0 10px rgba(255,117,104,.20),
-    0 2px 0 #641c38;
-}
-
-/* =====================================================
-   SENICX TOKEN RECEIVER
-===================================================== */
+/* TOKEN SLOT */
 
 .token-slot{
-  position:relative;
-  width:82px;
-  padding:9px 10px 8px;
-  box-sizing:border-box;
-
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:7px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #37313d 0%,
-      #29242f 52%,
-      #1b1720 100%
-    );
-
-  border:1px solid #65596a;
-  border-radius:5px;
-
-  box-shadow:
-    inset 0 1px rgba(255,255,255,.09),
-    inset 0 -5px 7px rgba(0,0,0,.42),
-    0 2px 0 #100c13;
-}
-
-.token-slot::before{
-  content:"";
-  position:absolute;
-  inset:3px;
-
-  border:1px solid rgba(0,0,0,.34);
-  border-radius:3px;
-
-  box-shadow:
-    inset 0 1px rgba(255,255,255,.045);
-
-  pointer-events:none;
+  gap:9px;
 }
 
 .slot-hole{
-  position:relative;
-  z-index:1;
-
   width:57px;
   height:10px;
-  box-sizing:border-box;
-
-  border:2px solid #62586a;
-  border-radius:7px;
-
-  background:
-    linear-gradient(
-      180deg,
-      #08070b,
-      #151119 55%,
-      #050408
-    );
-
+  border:2px solid #75687c;
+  border-radius:8px;
+  background:#09070c;
   box-shadow:
-    inset 0 2px 3px #000,
-    inset 0 -1px rgba(255,255,255,.07),
-    0 1px rgba(255,255,255,.10);
+    inset 0 2px 4px #000,
+    0 1px #c5b1ce44;
 }
 
 .slot-label{
-  position:relative;
-  z-index:1;
-
-  color:#b8a8c2;
-  font-size:7px;
-  letter-spacing:.16em;
-
-  text-shadow:
-    0 1px #100c13;
+  color:#d9c6e2;
+  font-size:8px;
+  letter-spacing:.18em;
 }
 
 /* Reset will return as an external emergency control later. */
@@ -1088,10 +865,9 @@ button:focus-visible,
     margin:0 -5px;
   }
 
- .draw-button{
-    width:108px;
-    height:48px;
-    padding:0;
+  .draw-button{
+    min-width:108px;
+    padding:14px 10px;
     font-size:17px;
   }
 
