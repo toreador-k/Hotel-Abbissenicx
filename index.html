@@ -691,36 +691,38 @@ background:
 }
 
 /* =====================================================
-   DRAW / RECESSED MECHANICAL BUTTON
+   DRAW / ILLUMINATED ARCADE DOME BUTTON
 ===================================================== */
 
 .draw-button{
   position:relative;
   z-index:1;
 
-  width:150px;
+  width:156px;
   height:58px;
   padding:0;
 
-  border:0;
-  border-radius:8px;
+  border:1px solid #161922;
+  border-radius:30px;
 
   color:#fff4df;
   font:700 21px Tickerbit Mono,"Courier New",monospace;
   letter-spacing:.2em;
 
+  /* DARK MECHANICAL BASE */
   background:
     linear-gradient(
       180deg,
-      #3a1c2b 0%,
-      #24131f 100%
+      #3c435a 0%,
+      #292f43 45%,
+      #1b202d 100%
     );
 
   box-shadow:
-    inset 0 2px 2px rgba(255,255,255,.07),
-    inset 0 -3px 5px rgba(0,0,0,.65),
-    0 4px 0 #100b12,
-    0 7px 10px rgba(0,0,0,.45);
+    inset 0 2px 0 rgba(185,216,230,.14),
+    inset 0 -5px 8px rgba(0,0,0,.65),
+    0 4px 0 #11141d,
+    0 7px 9px rgba(0,0,0,.42);
 
   cursor:pointer;
 
@@ -731,7 +733,7 @@ background:
 
 
 /* -----------------------------------------------------
-   RECESSED MOUNTING BEZEL
+   METAL / PLASTIC MOUNTING RING
 ----------------------------------------------------- */
 
 .draw-button::before{
@@ -740,33 +742,33 @@ background:
   position:absolute;
   z-index:-1;
 
-  left:-10px;
-  right:-10px;
-  top:-9px;
-  bottom:-9px;
+  left:-4px;
+  right:-4px;
+  top:-4px;
+  bottom:-4px;
 
-  border:2px solid #292d3d;
-  border-radius:12px;
+  border:1px solid #737b96;
+  border-radius:34px;
 
   background:
     linear-gradient(
       180deg,
-      #252938 0%,
-      #171a24 100%
+      #515a75 0%,
+      #353c53 48%,
+      #222838 100%
     );
 
   box-shadow:
-    inset 0 2px 0 rgba(185,216,230,.12),
-    inset 0 -5px 8px rgba(0,0,0,.55),
-    0 2px 0 #0e1017,
-    0 4px 7px rgba(0,0,0,.35);
+    inset 0 1px 0 rgba(185,216,230,.20),
+    inset 0 -4px 6px rgba(0,0,0,.55),
+    0 3px 0 #12151e;
 
   pointer-events:none;
 }
 
 
 /* -----------------------------------------------------
-   BUTTON CAP
+   ILLUMINATED DOME CAP
 ----------------------------------------------------- */
 
 .draw-button::after{
@@ -774,37 +776,47 @@ background:
 
   position:absolute;
 
-  left:4px;
-  right:4px;
+  left:5px;
+  right:5px;
   top:4px;
-  bottom:7px;
+  bottom:8px;
 
-  border-radius:5px;
+  border-radius:25px;
 
   background:
-    linear-gradient(
-      180deg,
-      #f47d68 0%,
-      #d84b5d 48%,
-      #a62c4c 100%
+    radial-gradient(
+      ellipse at 50% 22%,
+      #ffb18f 0%,
+      #f47d68 18%,
+      #dc4f60 52%,
+      #ad304e 82%,
+      #8c2745 100%
     );
 
-  border-top:2px solid #ffad8e;
-  border-left:1px solid #f37b6f;
-  border-right:1px solid #a52d4c;
-  border-bottom:3px solid #72203b;
+  border:1px solid #ffad91;
 
   box-shadow:
-    inset 0 2px 3px rgba(255,224,204,.32),
-    inset 0 -5px 7px rgba(89,16,42,.55),
-    0 2px 0 #1a0e16;
+
+    /* acrylic-like top reflection */
+    inset 0 3px 4px rgba(255,238,226,.42),
+
+    /* deep red underside */
+    inset 0 -7px 9px rgba(84,12,38,.58),
+
+    /* internal illumination */
+    inset 0 0 12px rgba(255,117,104,.28),
+
+    /* physical cap depth */
+    0 3px 0 #641c38,
+
+    0 4px 5px rgba(0,0,0,.38);
 
   pointer-events:none;
 }
 
 
 /* -----------------------------------------------------
-   LABEL
+   DRAW LABEL
 ----------------------------------------------------- */
 
 .draw-button span{
@@ -815,9 +827,11 @@ background:
 
   transform:translateY(-1px);
 
+  color:#fff5df;
+
   text-shadow:
-    0 1px 0 rgba(255,255,255,.18),
-    0 2px 3px rgba(70,15,30,.45);
+    0 1px 0 rgba(255,255,255,.22),
+    0 2px 3px rgba(79,12,29,.45);
 }
 
 
@@ -826,33 +840,33 @@ background:
 ----------------------------------------------------- */
 
 .draw-button:hover{
-  filter:brightness(1.05);
+  filter:brightness(1.06);
 }
 
 
 /* -----------------------------------------------------
-   PRESSED / PHYSICAL TRAVEL
+   PHYSICAL PRESS
 ----------------------------------------------------- */
 
 .draw-button:active{
   transform:translateY(4px);
 
   box-shadow:
-    inset 0 2px 3px rgba(255,255,255,.04),
-    inset 0 -2px 4px rgba(0,0,0,.7),
-    0 1px 0 #100b12,
-    0 3px 5px rgba(0,0,0,.4);
+    inset 0 2px 2px rgba(185,216,230,.08),
+    inset 0 -4px 7px rgba(0,0,0,.72),
+    0 1px 0 #11141d,
+    0 3px 5px rgba(0,0,0,.38);
 }
 
 .draw-button:active::after{
   top:6px;
-  bottom:5px;
-
-  border-top-color:#e06b60;
+  bottom:6px;
 
   box-shadow:
-    inset 0 2px 4px rgba(0,0,0,.18),
-    inset 0 -3px 5px rgba(89,16,42,.65);
+    inset 0 2px 4px rgba(255,238,226,.22),
+    inset 0 -5px 7px rgba(84,12,38,.68),
+    inset 0 0 10px rgba(255,117,104,.20),
+    0 2px 0 #641c38;
 }
 
 /* =====================================================
@@ -1074,9 +1088,10 @@ button:focus-visible,
     margin:0 -5px;
   }
 
-  .draw-button{
-    min-width:108px;
-    padding:14px 10px;
+ .draw-button{
+    width:108px;
+    height:48px;
+    padding:0;
     font-size:17px;
   }
 
