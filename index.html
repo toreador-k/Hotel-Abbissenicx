@@ -583,59 +583,80 @@ body::before{
   gap:18px;
 }
 
-/* DARKER, MATTE ARCADE JOYSTICK */
+/* =====================================================
+   JOYSTICK / RECESSED MOUNT
+===================================================== */
 
 .joystick{
   position:relative;
   width:68px;
   height:68px;
   flex:none;
+
   border:7px solid #17141b;
   border-radius:50%;
+
   background:
     radial-gradient(
-      circle at 38% 32%,
-      #56505d 0%,
-      #34303a 42%,
-      #1a171e 74%,
-      #0d0b10 100%
+      circle,
+      #0c0a0f 0%,
+      #17131b 42%,
+      #302b35 58%,
+      #18141c 72%,
+      #0a080d 100%
     );
+
   box-shadow:
-    inset 0 3px 6px rgba(255,255,255,.08),
-    inset 0 -7px 10px rgba(0,0,0,.65),
-    0 3px 0 #09070b,
-    0 6px 8px rgba(0,0,0,.45);
+    inset 0 2px 3px rgba(255,255,255,.08),
+    inset 0 -8px 11px rgba(0,0,0,.75),
+
+    /* mechanical collar */
+    0 0 0 2px #0d0b10,
+    0 0 0 4px #3c3541,
+
+    0 4px 0 #09070b,
+    0 7px 9px rgba(0,0,0,.45);
 }
 
 .joystick::before{
   content:"";
+
   position:absolute;
   width:11px;
   height:34px;
+
   left:21px;
   top:-29px;
+
   border-radius:4px;
+
   background:
     linear-gradient(
       90deg,
-      #242027,
+      #242027 0%,
       #756b7b 42%,
       #3a3440 72%,
-      #17141a
+      #17141a 100%
     );
+
   box-shadow:
     inset 1px 0 rgba(255,255,255,.16),
+    inset -2px 0 rgba(0,0,0,.35),
     0 3px 5px rgba(0,0,0,.7);
 }
 
 .joystick::after{
   content:"";
+
   position:absolute;
   width:30px;
   height:30px;
+
   left:12px;
   top:-46px;
+
   border-radius:50%;
+
   background:
     radial-gradient(
       circle at 34% 28%,
@@ -644,74 +665,194 @@ body::before{
       #242029 68%,
       #100e13 100%
     );
+
   border:1px solid #756b7d;
+
   box-shadow:
     inset 0 2px 2px rgba(255,255,255,.13),
     inset 0 -5px 7px rgba(0,0,0,.7),
     0 4px 8px rgba(0,0,0,.75);
 }
 
-/* DRAW */
+/* =====================================================
+   DRAW / MECHANICAL BUTTON
+===================================================== */
 
 .draw-button{
+  position:relative;
+
   min-width:150px;
   padding:16px 28px;
-  border:4px solid #4d182f;
-  border-radius:12px;
+
+  border:4px solid #351525;
+  border-radius:10px;
+
   color:#fff4df;
+
   font:700 22px Tickerbit Mono,"Courier New",monospace;
   letter-spacing:.2em;
+
   background:
     linear-gradient(
-      #ff9b69,
-      #e54f62 48%,
-      #a92250
+      180deg,
+      #ff9468 0%,
+      #e65363 46%,
+      #b32c52 100%
     );
+
   box-shadow:
-    inset 0 3px #ffd2b788,
-    inset 0 -6px #741b3e,
-    0 7px #171019,
-    0 10px 12px #0008;
+    /* top lip */
+    inset 0 3px rgba(255,211,185,.50),
+
+    /* lower bevel */
+    inset 0 -6px rgba(104,22,55,.75),
+
+    /* mounting body */
+    0 0 0 3px #171119,
+    0 4px 0 #0d0910,
+    0 7px 0 #171019,
+
+    /* cabinet contact shadow */
+    0 10px 12px rgba(0,0,0,.45);
+
   cursor:pointer;
-  transition:transform .08s,filter .15s;
+
+  transition:
+    transform .08s,
+    filter .15s;
+}
+
+.draw-button::before{
+  content:"";
+
+  position:absolute;
+  inset:-8px;
+
+  border:2px solid #161119;
+  border-radius:14px;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.07),
+    0 1px rgba(255,255,255,.08);
+
+  pointer-events:none;
+}
+
+.draw-button::after{
+  content:"";
+
+  position:absolute;
+  left:7px;
+  right:7px;
+  bottom:-8px;
+
+  height:5px;
+
+  border-radius:0 0 4px 4px;
+
+  background:#171119;
+
+  box-shadow:
+    0 2px 2px rgba(0,0,0,.55);
+
+  pointer-events:none;
 }
 
 .draw-button:hover{
-  filter:brightness(1.15);
+  filter:brightness(1.08);
 }
 
 .draw-button:active{
   transform:translateY(5px);
+
   box-shadow:
-    inset 0 3px #ffd2b755,
-    inset 0 -3px #741b3e,
-    0 2px #171019;
+    inset 0 3px rgba(255,211,185,.35),
+    inset 0 -3px rgba(104,22,55,.75),
+    0 0 0 3px #171119,
+    0 2px 0 #0d0910;
 }
 
-/* TOKEN SLOT */
+/* =====================================================
+   SENICX TOKEN RECEIVER
+===================================================== */
 
 .token-slot{
+  position:relative;
+  width:82px;
+  padding:9px 10px 8px;
+  box-sizing:border-box;
+
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:9px;
+  gap:7px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #37313d 0%,
+      #29242f 52%,
+      #1b1720 100%
+    );
+
+  border:1px solid #65596a;
+  border-radius:5px;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.09),
+    inset 0 -5px 7px rgba(0,0,0,.42),
+    0 2px 0 #100c13;
+}
+
+.token-slot::before{
+  content:"";
+  position:absolute;
+  inset:3px;
+
+  border:1px solid rgba(0,0,0,.34);
+  border-radius:3px;
+
+  box-shadow:
+    inset 0 1px rgba(255,255,255,.045);
+
+  pointer-events:none;
 }
 
 .slot-hole{
+  position:relative;
+  z-index:1;
+
   width:57px;
   height:10px;
-  border:2px solid #75687c;
-  border-radius:8px;
-  background:#09070c;
+  box-sizing:border-box;
+
+  border:2px solid #62586a;
+  border-radius:7px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #08070b,
+      #151119 55%,
+      #050408
+    );
+
   box-shadow:
-    inset 0 2px 4px #000,
-    0 1px #c5b1ce44;
+    inset 0 2px 3px #000,
+    inset 0 -1px rgba(255,255,255,.07),
+    0 1px rgba(255,255,255,.10);
 }
 
 .slot-label{
-  color:#d9c6e2;
-  font-size:8px;
-  letter-spacing:.18em;
+  position:relative;
+  z-index:1;
+
+  color:#b8a8c2;
+  font-size:7px;
+  letter-spacing:.16em;
+
+  text-shadow:
+    0 1px #100c13;
 }
 
 /* Reset will return as an external emergency control later. */
